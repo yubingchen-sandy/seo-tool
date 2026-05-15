@@ -104,6 +104,7 @@
 
 <div class="controls">
   <input id="search" placeholder="🔎 Search related keyword…">
+  <select id="filter-date" title="Filter by date"><option value="">All dates</option></select>
   <select id="filter-keyword"><option value="">All keywords</option></select>
   <select id="filter-region"><option value="">All regions</option></select>
   <select id="filter-trend">
@@ -143,40 +144,69 @@ let sortDir = -1; // -1 desc, 1 asc
 
 async function load() {
   document.getElementById("meta").textContent = "Loading…";
+  // Try all.json first (cumulative). Fall back to latest.json for older deployments.
+  let res, source = "all.json";
   try {
-    const res = await fetch("./latest.json?ts=" + Date.now(), { cache: "no-store" });
+    res = await fetch("./all.json?ts=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) throw new Error("all.json " + res.status);
+  } catch (e) {
+    try {
+      res = await fetch("./latest.json?ts=" + Date.now(), { cache: "no-store" });
+      source = "latest.json";
+    } catch (e2) {
+      document.getElementById("meta").textContent =
+        "Failed to load data — has the workflow run yet?";
+      console.error(e2);
+      return;
+    }
+  }
+  try {
     snapshot = await res.json();
     allRows = snapshot.rows || [];
     const updated = new Date(snapshot.generated_at).toLocaleString();
+    const dateCount = (snapshot.available_dates || []).length;
+    const summary = source === "all.json"
+      ? `${snapshot.total} trends across ${dateCount} day${dateCount === 1 ? "" : "s"}`
+      : `${snapshot.total} trends`;
     document.getElementById("meta").innerHTML =
-      `Updated <strong>${updated}</strong> · ${snapshot.total} trends · ` +
+      `Updated <strong>${updated}</strong> · ${summary} · ` +
       `threshold <code>≥${snapshot.threshold}%</code> · timeframe <code>${snapshot.timeframe}</code>`;
     populateFilters();
+    // Default to the most recent date so the dashboard opens on "today".
+    const dateSel = document.getElementById("filter-date");
+    if (snapshot.latest_date && [...dateSel.options].some(o => o.value === snapshot.latest_date)) {
+      dateSel.value = snapshot.latest_date;
+    }
     render();
   } catch (e) {
-    document.getElementById("meta").textContent = "Failed to load latest.json — has the workflow run yet?";
+    document.getElementById("meta").textContent = "Failed to parse data.";
     console.error(e);
   }
 }
 
 function populateFilters() {
-  const fill = (selId, values) => {
+  const fill = (selId, values, sortFn) => {
     const sel = document.getElementById(selId);
     const current = sel.value;
     while (sel.options.length > 1) sel.remove(1);
-    [...new Set(values)].sort().forEach(v => sel.add(new Option(v, v)));
-    sel.value = current;
+    const uniq = [...new Set(values)].sort(sortFn);
+    uniq.forEach(v => sel.add(new Option(v, v)));
+    if (current && uniq.includes(current)) sel.value = current;
   };
   fill("filter-keyword", allRows.map(r => r.Keyword));
   fill("filter-region",  allRows.map(r => r.Region));
+  // Dates sorted newest first.
+  fill("filter-date",    allRows.map(r => r.Date), (a, b) => b.localeCompare(a));
 }
 
 function currentRows() {
   const q  = document.getElementById("search").value.trim().toLowerCase();
+  const fd = document.getElementById("filter-date").value;
   const fk = document.getElementById("filter-keyword").value;
   const fr = document.getElementById("filter-region").value;
   const ft = document.getElementById("filter-trend").value;
   return allRows.filter(r => {
+    if (fd && r.Date !== fd) return false;
     if (fk && r.Keyword !== fk) return false;
     if (fr && r.Region !== fr) return false;
     if (ft === "Breakout" && r.Trend !== "Breakout") return false;
@@ -240,7 +270,7 @@ document.querySelectorAll("thead th[data-key]").forEach(th => {
   };
 });
 
-["search", "filter-keyword", "filter-region", "filter-trend"].forEach(id =>
+["search", "filter-date", "filter-keyword", "filter-region", "filter-trend"].forEach(id =>
   document.getElementById(id).addEventListener("input", render));
 
 document.getElementById("refresh").onclick = load;

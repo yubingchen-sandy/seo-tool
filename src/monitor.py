@@ -26,7 +26,7 @@ CONFIG_PATH = REPO_ROOT / "keywords.yml"
 DATA_DIR = REPO_ROOT / "data"
 DAILY_DIR = DATA_DIR / "daily"
 HISTORY_CSV = DATA_DIR / "history.csv"
-DOCS_LATEST = REPO_ROOT / "docs" / "latest.json"
+DOCS_ALL = REPO_ROOT / "docs" / "all.json"
 
 # pytrends encodes "Breakout" as a sentinel integer well above any real %.
 BREAKOUT_THRESHOLD = 100_000
@@ -128,7 +128,7 @@ def main() -> int:
 
     DATA_DIR.mkdir(exist_ok=True)
     DAILY_DIR.mkdir(parents=True, exist_ok=True)
-    DOCS_LATEST.parent.mkdir(parents=True, exist_ok=True)
+    DOCS_ALL.parent.mkdir(parents=True, exist_ok=True)
 
     pytrends = TrendReq(
         hl="en-US",
@@ -172,18 +172,51 @@ def main() -> int:
 
     log.info("Collected %d rows across %d queries", len(rows), total)
 
+    # --- merge with previous all.json -------------------------------------
+    # If a row already exists for today's date in all.json we replace it —
+    # so manual re-runs on the same day overwrite that day cleanly.
+    previous_rows: list[dict] = []
+    if DOCS_ALL.exists():
+        try:
+            previous_rows = json.loads(DOCS_ALL.read_text(encoding="utf-8")).get("rows", [])
+        except Exception as e:  # noqa: BLE001
+            log.warning("Failed to read existing all.json: %s", e)
+    today_dates = {today}
+    merged_rows = [r for r in previous_rows if r.get("Date") not in today_dates] + rows
+    # Sort newest first, then by Value desc for nicer default view.
+    merged_rows.sort(
+        key=lambda r: (r.get("Date") or "", r.get("Value") or 0),
+        reverse=True,
+    )
+    available_dates = sorted({r["Date"] for r in merged_rows if r.get("Date")}, reverse=True)
+
     # --- write outputs ----------------------------------------------------
-    snapshot = {
+    snapshot_all = {
         "generated_at": captured_at,
-        "date": today,
+        "latest_date": today,
+        "available_dates": available_dates,
         "threshold": threshold,
         "timeframe": timeframe,
-        "total": len(rows),
-        "rows": rows,
+        "total": len(merged_rows),
+        "today_total": len(rows),
+        "rows": merged_rows,
     }
-    DOCS_LATEST.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
+    DOCS_ALL.write_text(json.dumps(snapshot_all, ensure_ascii=False, indent=2), encoding="utf-8")
+    # Per-day archive (today only)
     (DAILY_DIR / f"{today}.json").write_text(
-        json.dumps(snapshot, ensure_ascii=False, indent=2), encoding="utf-8"
+        json.dumps(
+            {
+                "generated_at": captured_at,
+                "date": today,
+                "threshold": threshold,
+                "timeframe": timeframe,
+                "total": len(rows),
+                "rows": rows,
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
     )
 
     if rows:
@@ -193,7 +226,6 @@ def main() -> int:
         else:
             df.to_csv(HISTORY_CSV, index=False)
     elif not HISTORY_CSV.exists():
-        # Seed an empty history with headers so downstream tools don't break.
         pd.DataFrame(
             columns=[
                 "Keyword", "Region", "Region Code", "Date", "Related Keyword",
@@ -201,7 +233,12 @@ def main() -> int:
             ]
         ).to_csv(HISTORY_CSV, index=False)
 
-    log.info("Wrote %s, %s", DOCS_LATEST, HISTORY_CSV)
+    # Clean up the pre-migration single-day file so it does not get stale.
+    legacy_latest = REPO_ROOT / "docs" / "latest.json"
+    if legacy_latest.exists():
+        legacy_latest.unlink()
+
+    log.info("Wrote %s (%d total rows, %d dates)", DOCS_ALL, len(merged_rows), len(available_dates))
     return 0
 
 

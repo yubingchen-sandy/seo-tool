@@ -1,9 +1,11 @@
 {
   "generated_at": "1970-01-01T00:00:00+00:00",
-  "date": "1970-01-01",
+  "latest_date": "1970-01-01",
+  "available_dates": [],
   "threshold": 500,
-  "timeframe": "now 7-d",
+  "timeframe": "now 1-d",
   "total": 0,
+  "today_total": 0,
   "rows": [],
   "_note": "Placeholder. The daily workflow will overwrite this on its first run."
 }
