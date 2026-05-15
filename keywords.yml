@@ -50,6 +50,7 @@ regions:
 # Google labels >5000% as "Breakout"; those are always kept.
 threshold: 500
 
-# pytrends timeframe. "now 7-d" is the most reliable window for daily
-# rising-queries data. "now 1-d" works but often returns empty.
-timeframe: "now 7-d"
+# pytrends timeframe. "now 1-d" = past 24 hours (matches "今天热度"
+# semantics). Trade-off: sparse — most days a brand keyword has no
+# rising queries above threshold. Alternatives: "now 7-d", "today 1-m".
+timeframe: "now 1-d"
