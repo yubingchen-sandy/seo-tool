@@ -13,10 +13,15 @@ concurrency:
   group: trends-monitor
   cancel-in-progress: false
 
+env:
+  DASHBOARD_URL: https://yubingchen-sandy.github.io/seo-tool/
+  MAX_ATTEMPTS: "3"
+  RETRY_SLEEP_SECONDS: "480"   # 8 minutes between attempts to let rate-limits cool
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,17 +35,54 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run monitor
-        run: python src/monitor.py
+      - name: Run monitor (up to 3 attempts)
+        id: run
+        continue-on-error: true
+        run: |
+          set +e
+          attempt=0
+          result="failed"
+          while [ $attempt -lt $MAX_ATTEMPTS ]; do
+            attempt=$((attempt + 1))
+            echo "::group::Attempt $attempt of $MAX_ATTEMPTS"
+            python src/monitor.py
+            code=$?
+            echo "::endgroup::"
+            if [ $code -eq 0 ]; then
+              result="success"
+              break
+            fi
+            echo "Attempt $attempt failed (exit $code)."
+            if [ $attempt -lt $MAX_ATTEMPTS ]; then
+              echo "Sleeping $RETRY_SLEEP_SECONDS seconds before retry..."
+              sleep "$RETRY_SLEEP_SECONDS"
+            fi
+          done
+          echo "result=$result"     >> "$GITHUB_OUTPUT"
+          echo "attempts=$attempt"  >> "$GITHUB_OUTPUT"
+          [ "$result" = "success" ]
 
-      - name: Commit & push data
+      - name: Commit data
+        if: steps.run.outputs.result == 'success'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ docs/latest.json
+          git add data/ docs/
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "chore(data): trends snapshot $(date -u +%Y-%m-%d)"
             git push
           fi
+
+      - name: Send Lark notification
+        if: always()
+        env:
+          LARK_WEBHOOK_URL: ${{ secrets.LARK_WEBHOOK_URL }}
+          RUN_RESULT: ${{ steps.run.outputs.result }}
+          RUN_ATTEMPTS: ${{ steps.run.outputs.attempts }}
+        run: python scripts/notify_lark.py
+
+      - name: Mark job failed if monitor never succeeded
+        if: steps.run.outputs.result != 'success'
+        run: exit 1

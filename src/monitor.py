@@ -27,6 +27,13 @@ DATA_DIR = REPO_ROOT / "data"
 DAILY_DIR = DATA_DIR / "daily"
 HISTORY_CSV = DATA_DIR / "history.csv"
 DOCS_ALL = REPO_ROOT / "docs" / "all.json"
+RUN_SUMMARY = REPO_ROOT / "data" / "last_run_summary.json"
+
+# A run is considered failed if more than this fraction of queries got no
+# response from Google Trends after the per-query retries inside
+# fetch_rising(). Empty data (Google responded with no rising queries) does
+# NOT count as failure — quiet days are legitimate.
+FAILURE_RATIO_THRESHOLD = 0.5
 
 # pytrends encodes "Breakout" as a sentinel integer well above any real %.
 BREAKOUT_THRESHOLD = 100_000
@@ -75,8 +82,13 @@ def fetch_rising(
     timeframe: str,
     threshold: int,
     retries: int = 3,
-) -> list[dict]:
-    """Fetch rising related queries for one keyword/region. Empty list on failure."""
+) -> list[dict] | None:
+    """Fetch rising related queries for one keyword/region.
+
+    Returns a (possibly empty) list when Google responded; ``None`` when
+    every retry failed to get a response (treated as a real failure by the
+    caller).
+    """
     for attempt in range(retries):
         try:
             pytrends.build_payload([keyword], timeframe=timeframe, geo=geo)
@@ -90,7 +102,6 @@ def fetch_rising(
                 raw_value, label = normalize_value(row["value"])
                 if raw_value is None:
                     continue
-                # Breakout (>= sentinel) always passes the threshold.
                 if raw_value < threshold:
                     continue
                 results.append(
@@ -112,7 +123,7 @@ def fetch_rising(
             log.error("Unexpected error on %s/%s: %s", keyword, geo or "WORLD", e)
             time.sleep(5)
     log.error("Gave up on %s/%s after %d retries", keyword, geo or "WORLD", retries)
-    return []
+    return None
 
 
 def main() -> int:
@@ -144,6 +155,7 @@ def main() -> int:
 
     rows: list[dict] = []
     total = len(keywords) * len(regions)
+    failed_queries = 0
     i = 0
     for kw in keywords:
         for region in regions:
@@ -152,25 +164,33 @@ def main() -> int:
             geo_name = region.get("name", geo or "Global")
             log.info("[%d/%d] %s @ %s", i, total, kw, geo_name)
             hits = fetch_rising(pytrends, kw, geo, timeframe, threshold)
-            for hit in hits:
-                rows.append(
-                    {
-                        "Keyword": kw,
-                        "Region": geo_name,
-                        "Region Code": geo or "WORLD",
-                        "Date": today,
-                        "Related Keyword": hit["related_query"],
-                        "Trend": hit["trend_label"],
-                        "Value": hit["value"],
-                        "Trend Type": "Rising",
-                        "Source": build_trends_link(hit["related_query"], geo, timeframe),
-                        "Captured At": captured_at,
-                    }
-                )
+            if hits is None:
+                failed_queries += 1
+            else:
+                for hit in hits:
+                    rows.append(
+                        {
+                            "Keyword": kw,
+                            "Region": geo_name,
+                            "Region Code": geo or "WORLD",
+                            "Date": today,
+                            "Related Keyword": hit["related_query"],
+                            "Trend": hit["trend_label"],
+                            "Value": hit["value"],
+                            "Trend Type": "Rising",
+                            "Source": build_trends_link(hit["related_query"], geo, timeframe),
+                            "Captured At": captured_at,
+                        }
+                    )
             # be polite — pytrends is unofficial and Google rate-limits hard
             time.sleep(random.uniform(2.5, 4.5))
 
-    log.info("Collected %d rows across %d queries", len(rows), total)
+    success_queries = total - failed_queries
+    failure_ratio = failed_queries / total if total else 0.0
+    log.info(
+        "Collected %d rows across %d/%d successful queries (%.1f%% failure)",
+        len(rows), success_queries, total, failure_ratio * 100,
+    )
 
     # --- merge with previous all.json -------------------------------------
     # If a row already exists for today's date in all.json we replace it —
@@ -238,7 +258,40 @@ def main() -> int:
     if legacy_latest.exists():
         legacy_latest.unlink()
 
+    # Write a machine-readable summary the workflow uses to build the Lark
+    # notification. Always written, even on failure, so the notifier has
+    # something to report.
+    run_failed = failure_ratio > FAILURE_RATIO_THRESHOLD
+    RUN_SUMMARY.write_text(
+        json.dumps(
+            {
+                "success": not run_failed,
+                "date": today,
+                "captured_at": captured_at,
+                "total_queries": total,
+                "failed_queries": failed_queries,
+                "success_queries": success_queries,
+                "failure_ratio": round(failure_ratio, 4),
+                "rising_keywords_today": len(rows),
+                "rising_keywords_total_history": len(merged_rows),
+                "timeframe": timeframe,
+                "threshold": threshold,
+                "failure_threshold": FAILURE_RATIO_THRESHOLD,
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
     log.info("Wrote %s (%d total rows, %d dates)", DOCS_ALL, len(merged_rows), len(available_dates))
+
+    if run_failed:
+        log.error(
+            "Run failed: %.1f%% query failure exceeds %.0f%% threshold",
+            failure_ratio * 100, FAILURE_RATIO_THRESHOLD * 100,
+        )
+        return 2  # distinct exit code so workflow can tell it apart
     return 0
 
 
