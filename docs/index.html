@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Google Trends Monitor — 3D Models</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root {
+    --bg: #0f1115;
+    --card: #1a1d24;
+    --card-hover: #202430;
+    --text: #e6e6e6;
+    --muted: #8a8f99;
+    --accent: #5b9dff;
+    --border: #2a2e38;
+    --breakout: #ff7875;
+    --breakout-bg: #ff4d4f22;
+    --rising: #5b9dff;
+    --rising-bg: #5b9dff22;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f7f8fa; --card: #fff; --card-hover: #f0f3f8;
+      --text: #1a1d24; --muted: #6b7280; --border: #e3e6ec;
+      --breakout-bg: #ffe7e7; --rising-bg: #e7f0ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--text);
+    font-size: 14px; line-height: 1.5;
+  }
+  header {
+    padding: 20px 32px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .controls {
+    padding: 16px 32px; display: flex; gap: 10px;
+    flex-wrap: wrap; align-items: center;
+    background: var(--bg); position: sticky; top: 0; z-index: 5;
+    border-bottom: 1px solid var(--border);
+  }
+  input, select, button {
+    background: var(--card); color: var(--text);
+    border: 1px solid var(--border); padding: 7px 11px;
+    border-radius: 6px; font-size: 13px; font-family: inherit;
+    outline: none; transition: border-color 0.15s;
+  }
+  input:focus, select:focus { border-color: var(--accent); }
+  button { cursor: pointer; }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+  #search { flex: 1; min-width: 220px; }
+  .stat { color: var(--muted); font-size: 12px; }
+  .table-wrap { padding: 0 32px 32px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td {
+    text-align: left; padding: 10px 14px;
+    border-bottom: 1px solid var(--border); font-size: 13px;
+    vertical-align: top;
+  }
+  thead th {
+    background: var(--card); cursor: pointer; user-select: none;
+    font-weight: 600; white-space: nowrap;
+  }
+  th:hover { color: var(--accent); }
+  th.sorted-asc::after  { content: " ▲"; color: var(--accent); }
+  th.sorted-desc::after { content: " ▼"; color: var(--accent); }
+  tbody tr:hover td { background: var(--card-hover); }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 10px;
+    font-size: 11px; font-weight: 500; white-space: nowrap;
+  }
+  .badge-breakout { background: var(--breakout-bg); color: var(--breakout); }
+  .badge-rising   { background: var(--rising-bg);   color: var(--rising); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .kw { font-weight: 500; }
+  .related { color: var(--text); }
+  .empty {
+    padding: 64px 32px; text-align: center; color: var(--muted);
+  }
+  .empty h3 { margin: 0 0 8px; color: var(--text); }
+  code { background: var(--card); padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🔥 Google Trends Monitor — 3D Models</h1>
+    <div class="meta" id="meta">Loading…</div>
+  </div>
+  <div style="display:flex; gap:8px;">
+    <button id="refresh" title="Reload data">↻ Refresh</button>
+    <button id="download" title="Export visible rows as CSV">⬇ CSV</button>
+  </div>
+</header>
+
+<div class="controls">
+  <input id="search" placeholder="🔎 Search related keyword…">
+  <select id="filter-keyword"><option value="">All keywords</option></select>
+  <select id="filter-region"><option value="">All regions</option></select>
+  <select id="filter-trend">
+    <option value="">All trends</option>
+    <option value="Breakout">Breakout only</option>
+    <option value="Rising">Rising only</option>
+  </select>
+  <span class="stat" id="count"></span>
+</div>
+
+<div class="table-wrap">
+  <table id="table">
+    <thead>
+      <tr>
+        <th data-key="Keyword">Keyword</th>
+        <th data-key="Region">Region</th>
+        <th data-key="Date">Date</th>
+        <th data-key="Related Keyword">Related Keyword</th>
+        <th data-key="Value" class="sorted-desc">Trend</th>
+        <th data-key="Trend Type">Type</th>
+        <th>Verify</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="empty" id="empty" style="display:none;">
+    <h3>No matching trends</h3>
+    <p>Try clearing filters, or check back after the next scheduled run.</p>
+  </div>
+</div>
+
+<script>
+let allRows = [];
+let snapshot = null;
+let sortKey = "Value";
+let sortDir = -1; // -1 desc, 1 asc
+
+async function load() {
+  document.getElementById("meta").textContent = "Loading…";
+  try {
+    const res = await fetch("./latest.json?ts=" + Date.now(), { cache: "no-store" });
+    snapshot = await res.json();
+    allRows = snapshot.rows || [];
+    const updated = new Date(snapshot.generated_at).toLocaleString();
+    document.getElementById("meta").innerHTML =
+      `Updated <strong>${updated}</strong> · ${snapshot.total} trends · ` +
+      `threshold <code>≥${snapshot.threshold}%</code> · timeframe <code>${snapshot.timeframe}</code>`;
+    populateFilters();
+    render();
+  } catch (e) {
+    document.getElementById("meta").textContent = "Failed to load latest.json — has the workflow run yet?";
+    console.error(e);
+  }
+}
+
+function populateFilters() {
+  const fill = (selId, values) => {
+    const sel = document.getElementById(selId);
+    const current = sel.value;
+    while (sel.options.length > 1) sel.remove(1);
+    [...new Set(values)].sort().forEach(v => sel.add(new Option(v, v)));
+    sel.value = current;
+  };
+  fill("filter-keyword", allRows.map(r => r.Keyword));
+  fill("filter-region",  allRows.map(r => r.Region));
+}
+
+function currentRows() {
+  const q  = document.getElementById("search").value.trim().toLowerCase();
+  const fk = document.getElementById("filter-keyword").value;
+  const fr = document.getElementById("filter-region").value;
+  const ft = document.getElementById("filter-trend").value;
+  return allRows.filter(r => {
+    if (fk && r.Keyword !== fk) return false;
+    if (fr && r.Region !== fr) return false;
+    if (ft === "Breakout" && r.Trend !== "Breakout") return false;
+    if (ft === "Rising"   && r.Trend === "Breakout") return false;
+    if (q && !(r["Related Keyword"] || "").toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+
+function render() {
+  const rows = currentRows().slice().sort((a, b) => {
+    let va = a[sortKey], vb = b[sortKey];
+    if (sortKey === "Value") {
+      va = a.Value ?? -1;
+      vb = b.Value ?? -1;
+    }
+    if (va == null) va = "";
+    if (vb == null) vb = "";
+    if (typeof va === "number" && typeof vb === "number") return (va - vb) * sortDir;
+    return String(va).localeCompare(String(vb)) * sortDir;
+  });
+
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = rows.map(r => `
+    <tr>
+      <td class="kw">${esc(r.Keyword)}</td>
+      <td>${esc(r.Region)}</td>
+      <td>${esc(r.Date)}</td>
+      <td class="related">${esc(r["Related Keyword"])}</td>
+      <td><span class="badge ${r.Trend === "Breakout" ? "badge-breakout" : "badge-rising"}">${esc(r.Trend)}</span></td>
+      <td>${esc(r["Trend Type"] || "Rising")}</td>
+      <td><a href="${esc(r.Source)}" target="_blank" rel="noopener">↗</a></td>
+    </tr>
+  `).join("");
+
+  document.getElementById("empty").style.display = rows.length ? "none" : "block";
+  document.getElementById("count").textContent =
+    rows.length === allRows.length
+      ? `${rows.length} rows`
+      : `${rows.length} of ${allRows.length} rows`;
+
+  document.querySelectorAll("thead th").forEach(th => {
+    th.classList.remove("sorted-asc", "sorted-desc");
+    if (th.dataset.key === sortKey) {
+      th.classList.add(sortDir > 0 ? "sorted-asc" : "sorted-desc");
+    }
+  });
+}
+
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"]/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+document.querySelectorAll("thead th[data-key]").forEach(th => {
+  th.onclick = () => {
+    const k = th.dataset.key;
+    if (sortKey === k) sortDir *= -1;
+    else { sortKey = k; sortDir = k === "Value" ? -1 : 1; }
+    render();
+  };
+});
+
+["search", "filter-keyword", "filter-region", "filter-trend"].forEach(id =>
+  document.getElementById(id).addEventListener("input", render));
+
+document.getElementById("refresh").onclick = load;
+
+document.getElementById("download").onclick = () => {
+  const rows = currentRows();
+  const headers = [
+    "Keyword", "Region", "Region Code", "Date", "Related Keyword",
+    "Trend", "Value", "Trend Type", "Source", "Captured At",
+  ];
+  const csv = [headers.join(",")]
+    .concat(rows.map(r => headers.map(h => JSON.stringify(r[h] ?? "")).join(",")))
+    .join("\n");
+  const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `trends-${(snapshot && snapshot.date) || new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+};
+
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+# =============================================================================
+# Google Trends Monitor — Configuration
+# =============================================================================
+# Edit this file to add/remove keywords. The next scheduled run picks it up.
+
+# -- Brand keywords --------------------------------------------------------
+# Meshy + main 3D-generation competitors.
+brands:
+  - Meshy
+  - Tripo
+  - Sketchfab
+  - Luma AI
+  - Rodin AI
+  - CSM AI
+  - Spline
+  - Kaedim
+  - Alpha3D
+  - Polycam
+  - Scenario
+  - 3DFY AI
+  - Masterpiece Studio
+
+# -- Industry / function keywords ------------------------------------------
+# Generic 3D-model space + functional intents.
+industry:
+  - 3d model
+  - 3d image
+  - 3d text
+  - 3d printing
+  - 3d generator
+  - ai 3d model
+  - text to 3d
+  - image to 3d
+  - 3d asset
+  - 3d animation
+  - 3d character
+  - 3d avatar
+
+# -- Regions ---------------------------------------------------------------
+# `code` is the ISO geo code used by Google Trends. Empty string = Global.
+regions:
+  - { code: "",   name: "Global" }
+  - { code: "US", name: "United States" }
+  - { code: "DE", name: "Germany" }
+  - { code: "JP", name: "Japan" }
+  - { code: "FR", name: "France" }
+
+# -- Thresholds & timeframe ------------------------------------------------
+# Only keep Rising related queries whose % change is >= this value.
+# Google labels >5000% as "Breakout"; those are always kept.
+threshold: 500
+
+# pytrends timeframe. "now 7-d" is the most reliable window for daily
+# rising-queries data. "now 1-d" works but often returns empty.
+timeframe: "now 7-d"
