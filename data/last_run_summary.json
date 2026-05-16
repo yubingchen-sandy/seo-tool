@@ -1,13 +1,13 @@
 {
   "success": true,
-  "date": "2026-05-15",
-  "captured_at": "2026-05-15T10:44:44.939536+00:00",
+  "date": "2026-05-16",
+  "captured_at": "2026-05-16T08:26:40.632771+00:00",
   "total_queries": 125,
   "failed_queries": 0,
   "success_queries": 125,
   "failure_ratio": 0.0,
-  "rising_keywords_today": 8,
-  "rising_keywords_total_history": 8,
+  "rising_keywords_today": 4,
+  "rising_keywords_total_history": 12,
   "timeframe": "now 1-d",
   "threshold": 500,
   "failure_threshold": 0.5

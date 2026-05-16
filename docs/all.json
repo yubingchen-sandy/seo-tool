@@ -1,14 +1,63 @@
 {
-  "generated_at": "2026-05-15T10:44:44.939536+00:00",
-  "latest_date": "2026-05-15",
+  "generated_at": "2026-05-16T08:26:40.632771+00:00",
+  "latest_date": "2026-05-16",
   "available_dates": [
+    "2026-05-16",
     "2026-05-15"
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 8,
-  "today_total": 8,
+  "total": 12,
+  "today_total": 4,
   "rows": [
+    {
+      "Keyword": "3d animation",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-16",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 925950,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d",
+      "Captured At": "2026-05-16T08:26:40.632771+00:00"
+    },
+    {
+      "Keyword": "Meshy",
+      "Region": "France",
+      "Region Code": "FR",
+      "Date": "2026-05-16",
+      "Related Keyword": "tripo",
+      "Trend": "Breakout",
+      "Value": 692700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=tripo&date=now%201-d&geo=FR",
+      "Captured At": "2026-05-16T08:26:40.632771+00:00"
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "France",
+      "Region Code": "FR",
+      "Date": "2026-05-16",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 500100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=FR",
+      "Captured At": "2026-05-16T08:26:40.632771+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-16",
+      "Related Keyword": "what does fdm stand for in 3d printing",
+      "Trend": "+4550%",
+      "Value": 4550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=what%20does%20fdm%20stand%20for%20in%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-16T08:26:40.632771+00:00"
+    },
     {
       "Keyword": "3d asset",
       "Region": "Japan",
