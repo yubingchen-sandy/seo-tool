@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-05-17T09:13:26.188393+00:00",
+  "date": "2026-05-17",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 4,
+  "rows": [
+    {
+      "Keyword": "3d model",
+      "Region": "France",
+      "Region Code": "FR",
+      "Date": "2026-05-17",
+      "Related Keyword": "rafale 3d model",
+      "Trend": "Breakout",
+      "Value": 142000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=rafale%203d%20model&date=now%201-d&geo=FR",
+      "Captured At": "2026-05-17T09:13:26.188393+00:00"
+    },
+    {
+      "Keyword": "3d text",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-17",
+      "Related Keyword": "panzoid 3d text",
+      "Trend": "+91150%",
+      "Value": 91150,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=panzoid%203d%20text&date=now%201-d&geo=US",
+      "Captured At": "2026-05-17T09:13:26.188393+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-17",
+      "Related Keyword": "genesis 3d printing",
+      "Trend": "+24050%",
+      "Value": 24050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=genesis%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-17T09:13:26.188393+00:00"
+    },
+    {
+      "Keyword": "3d asset",
+      "Region": "Japan",
+      "Region Code": "JP",
+      "Date": "2026-05-17",
+      "Related Keyword": "unity 3d asset store",
+      "Trend": "Breakout",
+      "Value": 2039400,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d&geo=JP",
+      "Captured At": "2026-05-17T09:13:26.188393+00:00"
+    }
+  ]
+}
