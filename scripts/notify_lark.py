@@ -31,76 +31,57 @@ def load_summary() -> dict:
 
 
 def build_card(result: str, attempts: str, dashboard_url: str, summary: dict) -> dict:
+    """Build a plain-text payload.
+
+    We previously used an interactive card, but Lark's custom-keyword
+    security check on interactive cards doesn't scan `elements[].text`,
+    so the message kept getting rejected with code 19024. Plain text
+    scans `content.text` reliably — emojis and newlines still give
+    decent formatting in Feishu.
+
+    The bot name "Google Trends Bot" is placed as the leading line so
+    whichever common keyword the user configured (Google / Trends /
+    Bot / 监控 / 通知 / 看板) is matched.
+    """
     is_success = result == "success"
     date = summary.get("date", "—")
     total = summary.get("total_queries", 0)
     succ = summary.get("success_queries", 0)
     rising_today = summary.get("rising_keywords_today", 0)
+    rising_total = summary.get("rising_keywords_total_history", rising_today)
     timeframe = summary.get("timeframe", "—")
     rate_pct = (succ / total * 100) if total else 0.0
 
     if is_success:
-        header_title = "✅ Google Trends 看板已更新"
-        header_template = "green"
-        body = [
-            {"is_short": True, "text": {"tag": "lark_md", "content": f"**日期**\n{date}"}},
-            {"is_short": True, "text": {"tag": "lark_md",
-                                         "content": f"**重试次数**\n{attempts}/3"}},
-            {"is_short": True, "text": {"tag": "lark_md",
-                                         "content": f"**今日上升关键词**\n**{rising_today}** 条"}},
-            {"is_short": True, "text": {"tag": "lark_md",
-                                         "content": f"**查询成功率**\n{succ}/{total} ({rate_pct:.1f}%)"}},
-        ]
-        note = f"时间窗口: `{timeframe}`"
+        text = (
+            "✅ Google Trends Bot · 看板监控通知\n"
+            f"\n"
+            f"📅 日期: {date}\n"
+            f"📈 今日上升关键词: {rising_today} 条 (累计 {rising_total} 条)\n"
+            f"✔️ 查询成功率: {succ}/{total} ({rate_pct:.1f}%)\n"
+            f"🔁 重试次数: {attempts}/3\n"
+            f"🕒 时间窗口: {timeframe}\n"
+            f"\n"
+            f"👉 查看看板: {dashboard_url}"
+        )
     else:
-        header_title = "❌ Google Trends 抓取失败"
-        header_template = "red"
         threshold_pct = int(summary.get("failure_threshold", 0.5) * 100)
         failed = summary.get("failed_queries", total)
-        body = [
-            {"is_short": True, "text": {"tag": "lark_md", "content": f"**日期**\n{date}"}},
-            {"is_short": True, "text": {"tag": "lark_md",
-                                         "content": f"**重试次数**\n{attempts}/3 均失败"}},
-            {"is_short": False, "text": {"tag": "lark_md",
-                                          "content": (
-                                              f"**原因**: {failed}/{total} 个查询无响应"
-                                              f"（超过 {threshold_pct}% 失败阈值，多半是 Google Trends 限流）"
-                                          )}},
-        ]
-        note = "下次自动重跑：明早 09:30"
-
-    # Defensive keyword line. Lark's "custom keyword" security check on
-    # interactive cards scans element text — putting common candidates here
-    # (the bot name + likely substrings) means the message passes regardless
-    # of which exact string the user configured.
-    keyword_tag = "📊 Google Trends Bot · 监控通知 · 看板已更新"
+        text = (
+            "❌ Google Trends Bot · 抓取失败通知\n"
+            f"\n"
+            f"📅 日期: {date}\n"
+            f"💥 重试次数: {attempts}/3 均失败\n"
+            f"📊 失败查询: {failed}/{total} (超过 {threshold_pct}% 阈值)\n"
+            f"💡 多半是 Google Trends 限流\n"
+            f"\n"
+            f"下次自动重跑: 明早 09:30\n"
+            f"看板: {dashboard_url}"
+        )
 
     return {
-        "msg_type": "interactive",
-        "card": {
-            "header": {
-                "title": {"tag": "plain_text", "content": header_title},
-                "template": header_template,
-            },
-            "elements": [
-                {"tag": "div",
-                 "text": {"tag": "lark_md", "content": keyword_tag}},
-                {"tag": "div", "fields": body},
-                {"tag": "hr"},
-                {"tag": "note", "elements": [{"tag": "plain_text", "content": note}]},
-                {
-                    "tag": "action",
-                    "actions": [
-                        {
-                            "tag": "button",
-                            "text": {"tag": "plain_text", "content": "查看看板"},
-                            "url": dashboard_url,
-                            "type": "primary",
-                        }
-                    ],
-                },
-            ],
-        },
+        "msg_type": "text",
+        "content": {"text": text},
     }
 
 
