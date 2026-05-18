@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-05-18T03:38:31.264338+00:00",
+  "date": "2026-05-18",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 8,
+  "rows": [
+    {
+      "Keyword": "3d model",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-18",
+      "Related Keyword": "sketchfab",
+      "Trend": "Breakout",
+      "Value": 473800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=sketchfab&date=now%201-d",
+      "Captured At": "2026-05-18T03:38:31.264338+00:00"
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "darth vader 3d model",
+      "Trend": "+8650%",
+      "Value": 8650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=darth%20vader%203d%20model&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T03:38:31.264338+00:00"
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "best budget 3d printers",
+      "Trend": "+5050%",
+      "Value": 5050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=best%20budget%203d%20printers&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T03:38:31.264338+00:00"
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "France",
+      "Region Code": "FR",
+      "Date": "2026-05-18",
+      "Related Keyword": "sketchfab",
+      "Trend": "Breakout",
+      "Value": 326100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=sketchfab&date=now%201-d&geo=FR",
+      "Captured At": "2026-05-18T03:38:31.264338+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "what does ams mean in 3d printing",
+      "Trend": "+29500%",
+      "Value": 29500,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=what%20does%20ams%20mean%20in%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T03:38:31.264338+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "what software to use for 3d printing",
+      "Trend": "+26700%",
+      "Value": 26700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=what%20software%20to%20use%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T03:38:31.264338+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "slicing software for 3d printing",
+      "Trend": "+17650%",
+      "Value": 17650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=slicing%20software%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T03:38:31.264338+00:00"
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "Japan",
+      "Region Code": "JP",
+      "Date": "2026-05-18",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 961400,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=JP",
+      "Captured At": "2026-05-18T03:38:31.264338+00:00"
+    }
+  ]
+}
