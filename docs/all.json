@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T08:36:28.547911+00:00",
+  "generated_at": "2026-05-18T10:58:07.156229+00:00",
   "latest_date": "2026-05-18",
   "available_dates": [
     "2026-05-18",
@@ -43,32 +43,44 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 18,
-  "today_total": 2,
+  "total": 19,
+  "today_total": 3,
   "rows": [
     {
-      "Keyword": "3d printing",
+      "Keyword": "3d animation",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-18",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 813650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d",
+      "Captured At": "2026-05-18T10:58:07.156229+00:00"
+    },
+    {
+      "Keyword": "3d animation",
       "Region": "United States",
       "Region Code": "US",
       "Date": "2026-05-18",
-      "Related Keyword": "slicing software for 3d printing",
-      "Trend": "+17950%",
-      "Value": 17950,
+      "Related Keyword": "adobe 3d animation",
+      "Trend": "Breakout",
+      "Value": 129350,
       "Trend Type": "Rising",
-      "Source": "https://trends.google.com/trends/explore?q=slicing%20software%20for%203d%20printing&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T08:36:28.547911+00:00"
+      "Source": "https://trends.google.com/trends/explore?q=adobe%203d%20animation&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T10:58:07.156229+00:00"
     },
     {
       "Keyword": "3d model",
       "Region": "United States",
       "Region Code": "US",
       "Date": "2026-05-18",
-      "Related Keyword": "darth vader 3d model",
-      "Trend": "+6900%",
-      "Value": 6900,
+      "Related Keyword": "iss 3d model",
+      "Trend": "+6400%",
+      "Value": 6400,
       "Trend Type": "Rising",
-      "Source": "https://trends.google.com/trends/explore?q=darth%20vader%203d%20model&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T08:36:28.547911+00:00"
+      "Source": "https://trends.google.com/trends/explore?q=iss%203d%20model&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T10:58:07.156229+00:00"
     },
     {
       "Keyword": "3d asset",
