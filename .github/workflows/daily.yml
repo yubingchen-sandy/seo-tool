@@ -77,6 +77,9 @@ jobs:
 
       - name: Send Lark notification
         if: always()
+        # Lark keyword/signature debugging in progress — don't fail the
+        # whole job if the webhook rejects us. Re-tighten once auth works.
+        continue-on-error: true
         env:
           LARK_WEBHOOK_URL: ${{ secrets.LARK_WEBHOOK_URL }}
           RUN_RESULT: ${{ steps.run.outputs.result }}
