@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T10:58:07.156229+00:00",
+  "generated_at": "2026-05-18T11:14:26.853847+00:00",
   "latest_date": "2026-05-18",
   "available_dates": [
     "2026-05-18",
@@ -43,32 +43,20 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 19,
-  "today_total": 3,
+  "total": 18,
+  "today_total": 2,
   "rows": [
     {
-      "Keyword": "3d animation",
-      "Region": "Global",
-      "Region Code": "WORLD",
-      "Date": "2026-05-18",
-      "Related Keyword": "3d animation software",
-      "Trend": "Breakout",
-      "Value": 813650,
-      "Trend Type": "Rising",
-      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d",
-      "Captured At": "2026-05-18T10:58:07.156229+00:00"
-    },
-    {
-      "Keyword": "3d animation",
+      "Keyword": "3d printing",
       "Region": "United States",
       "Region Code": "US",
       "Date": "2026-05-18",
-      "Related Keyword": "adobe 3d animation",
-      "Trend": "Breakout",
-      "Value": 129350,
+      "Related Keyword": "what software to use for 3d printing",
+      "Trend": "+23150%",
+      "Value": 23150,
       "Trend Type": "Rising",
-      "Source": "https://trends.google.com/trends/explore?q=adobe%203d%20animation&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T10:58:07.156229+00:00"
+      "Source": "https://trends.google.com/trends/explore?q=what%20software%20to%20use%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T11:14:26.853847+00:00"
     },
     {
       "Keyword": "3d model",
@@ -80,7 +68,7 @@
       "Value": 6400,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=iss%203d%20model&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T10:58:07.156229+00:00"
+      "Captured At": "2026-05-18T11:14:26.853847+00:00"
     },
     {
       "Keyword": "3d asset",
