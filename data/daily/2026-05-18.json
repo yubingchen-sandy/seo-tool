@@ -1,21 +1,33 @@
 {
-  "generated_at": "2026-05-18T11:14:26.853847+00:00",
+  "generated_at": "2026-05-18T14:39:09.713207+00:00",
   "date": "2026-05-18",
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 2,
+  "total": 5,
   "rows": [
     {
       "Keyword": "3d model",
       "Region": "United States",
       "Region Code": "US",
       "Date": "2026-05-18",
-      "Related Keyword": "iss 3d model",
-      "Trend": "+6400%",
-      "Value": 6400,
+      "Related Keyword": "meshmixer",
+      "Trend": "+5750%",
+      "Value": 5750,
       "Trend Type": "Rising",
-      "Source": "https://trends.google.com/trends/explore?q=iss%203d%20model&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T11:14:26.853847+00:00"
+      "Source": "https://trends.google.com/trends/explore?q=meshmixer&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T14:39:09.713207+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "cura 3d printing software",
+      "Trend": "+50850%",
+      "Value": 50850,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=cura%203d%20printing%20software&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T14:39:09.713207+00:00"
     },
     {
       "Keyword": "3d printing",
@@ -23,11 +35,35 @@
       "Region Code": "US",
       "Date": "2026-05-18",
       "Related Keyword": "what software to use for 3d printing",
-      "Trend": "+23150%",
-      "Value": 23150,
+      "Trend": "+22050%",
+      "Value": 22050,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=what%20software%20to%20use%20for%203d%20printing&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T11:14:26.853847+00:00"
+      "Captured At": "2026-05-18T14:39:09.713207+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "local 3d printing service",
+      "Trend": "+21250%",
+      "Value": 21250,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=local%203d%20printing%20service&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T14:39:09.713207+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "3d printing services near me",
+      "Trend": "+18550%",
+      "Value": 18550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20services%20near%20me&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T14:39:09.713207+00:00"
     }
   ]
 }
