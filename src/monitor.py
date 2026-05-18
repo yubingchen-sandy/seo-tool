@@ -210,11 +210,19 @@ def main() -> int:
     )
     available_dates = sorted({r["Date"] for r in merged_rows if r.get("Date")}, reverse=True)
 
+    # Full configured scope so the dashboard's filter dropdowns can list
+    # every monitored keyword/region, including ones that have not yet
+    # produced any rising data above the threshold.
+    monitored_keywords = list(keywords)
+    monitored_regions = [r.get("name", r.get("code") or "Global") for r in regions]
+
     # --- write outputs ----------------------------------------------------
     snapshot_all = {
         "generated_at": captured_at,
         "latest_date": today,
         "available_dates": available_dates,
+        "monitored_keywords": monitored_keywords,
+        "monitored_regions": monitored_regions,
         "threshold": threshold,
         "timeframe": timeframe,
         "total": len(merged_rows),

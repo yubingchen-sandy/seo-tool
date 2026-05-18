@@ -165,11 +165,16 @@ async function load() {
     allRows = snapshot.rows || [];
     const updated = new Date(snapshot.generated_at).toLocaleString();
     const dateCount = (snapshot.available_dates || []).length;
+    const kwCount   = (snapshot.monitored_keywords || []).length;
+    const regCount  = (snapshot.monitored_regions || []).length;
     const summary = source === "all.json"
       ? `${snapshot.total} trends across ${dateCount} day${dateCount === 1 ? "" : "s"}`
       : `${snapshot.total} trends`;
+    const scope = (kwCount && regCount)
+      ? ` · monitoring <strong>${kwCount}</strong> keywords × <strong>${regCount}</strong> regions`
+      : "";
     document.getElementById("meta").innerHTML =
-      `Updated <strong>${updated}</strong> · ${summary} · ` +
+      `Updated <strong>${updated}</strong> · ${summary}${scope} · ` +
       `threshold <code>≥${snapshot.threshold}%</code> · timeframe <code>${snapshot.timeframe}</code>`;
     populateFilters();
     // Default to the most recent date so the dashboard opens on "today".
@@ -193,9 +198,18 @@ function populateFilters() {
     uniq.forEach(v => sel.add(new Option(v, v)));
     if (current && uniq.includes(current)) sel.value = current;
   };
-  fill("filter-keyword", allRows.map(r => r.Keyword));
-  fill("filter-region",  allRows.map(r => r.Region));
-  // Dates sorted newest first.
+  // Prefer the full configured scope when available so that the dropdowns
+  // list every monitored keyword/region, even on quiet days. Fall back to
+  // values extracted from rows (older snapshots without these fields).
+  const kwSource  = (snapshot.monitored_keywords && snapshot.monitored_keywords.length)
+    ? snapshot.monitored_keywords
+    : allRows.map(r => r.Keyword);
+  const regSource = (snapshot.monitored_regions && snapshot.monitored_regions.length)
+    ? snapshot.monitored_regions
+    : allRows.map(r => r.Region);
+  fill("filter-keyword", kwSource);
+  fill("filter-region",  regSource);
+  // Dates only show what we actually have data for — newest first.
   fill("filter-date",    allRows.map(r => r.Date), (a, b) => b.localeCompare(a));
 }
 
