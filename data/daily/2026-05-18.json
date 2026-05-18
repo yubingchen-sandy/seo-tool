@@ -1,33 +1,33 @@
 {
-  "generated_at": "2026-05-18T05:48:30.506934+00:00",
+  "generated_at": "2026-05-18T06:07:29.731308+00:00",
   "date": "2026-05-18",
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 3,
+  "total": 5,
   "rows": [
     {
-      "Keyword": "Tripo",
-      "Region": "France",
-      "Region Code": "FR",
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
       "Date": "2026-05-18",
-      "Related Keyword": "meshy ai",
-      "Trend": "Breakout",
-      "Value": 1451950,
+      "Related Keyword": "asaro head 3d model",
+      "Trend": "+9050%",
+      "Value": 9050,
       "Trend Type": "Rising",
-      "Source": "https://trends.google.com/trends/explore?q=meshy%20ai&date=now%201-d&geo=FR",
-      "Captured At": "2026-05-18T05:48:30.506934+00:00"
+      "Source": "https://trends.google.com/trends/explore?q=asaro%20head%203d%20model&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T06:07:29.731308+00:00"
     },
     {
-      "Keyword": "3d model",
-      "Region": "France",
-      "Region Code": "FR",
+      "Keyword": "3d text",
+      "Region": "United States",
+      "Region Code": "US",
       "Date": "2026-05-18",
-      "Related Keyword": "sketchfab",
+      "Related Keyword": "panzoid 3d text",
       "Trend": "Breakout",
-      "Value": 344400,
+      "Value": 124300,
       "Trend Type": "Rising",
-      "Source": "https://trends.google.com/trends/explore?q=sketchfab&date=now%201-d&geo=FR",
-      "Captured At": "2026-05-18T05:48:30.506934+00:00"
+      "Source": "https://trends.google.com/trends/explore?q=panzoid%203d%20text&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T06:07:29.731308+00:00"
     },
     {
       "Keyword": "3d printing",
@@ -35,11 +35,35 @@
       "Region Code": "US",
       "Date": "2026-05-18",
       "Related Keyword": "what does ams mean in 3d printing",
-      "Trend": "+20650%",
-      "Value": 20650,
+      "Trend": "+25800%",
+      "Value": 25800,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=what%20does%20ams%20mean%20in%203d%20printing&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T05:48:30.506934+00:00"
+      "Captured At": "2026-05-18T06:07:29.731308+00:00"
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-18",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 1070700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d",
+      "Captured At": "2026-05-18T06:07:29.731308+00:00"
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-18",
+      "Related Keyword": "2d vs 3d animation",
+      "Trend": "+30350%",
+      "Value": 30350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=2d%20vs%203d%20animation&date=now%201-d&geo=US",
+      "Captured At": "2026-05-18T06:07:29.731308+00:00"
     }
   ]
 }
