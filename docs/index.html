@@ -190,12 +190,18 @@ async function load() {
 }
 
 function populateFilters() {
-  const fill = (selId, values, sortFn) => {
+  // `pinned` items appear at the top of the dropdown in the given order;
+  // everything else is sorted by `sortRest` (default: alphabetical).
+  const fill = (selId, values, { pinned = [], sortRest } = {}) => {
     const sel = document.getElementById(selId);
     const current = sel.value;
     while (sel.options.length > 1) sel.remove(1);
-    const uniq = [...new Set(values)].sort(sortFn);
-    uniq.forEach(v => sel.add(new Option(v, v)));
+    const uniq = [...new Set(values)];
+    const pinnedSet = new Set(pinned);
+    const rest = uniq.filter(v => !pinnedSet.has(v));
+    rest.sort(sortRest || ((a, b) => String(a).localeCompare(String(b))));
+    const ordered = [...pinned.filter(v => uniq.includes(v)), ...rest];
+    ordered.forEach(v => sel.add(new Option(v, v)));
     if (current && uniq.includes(current)) sel.value = current;
   };
   // Prefer the full configured scope when available so that the dropdowns
@@ -207,10 +213,11 @@ function populateFilters() {
   const regSource = (snapshot.monitored_regions && snapshot.monitored_regions.length)
     ? snapshot.monitored_regions
     : allRows.map(r => r.Region);
-  fill("filter-keyword", kwSource);
-  fill("filter-region",  regSource);
+  fill("filter-keyword", kwSource, { pinned: ["Meshy"] });
+  fill("filter-region",  regSource, { pinned: ["Global"] });
   // Dates only show what we actually have data for — newest first.
-  fill("filter-date",    allRows.map(r => r.Date), (a, b) => b.localeCompare(a));
+  fill("filter-date", allRows.map(r => r.Date),
+       { sortRest: (a, b) => b.localeCompare(a) });
 }
 
 function currentRows() {
