@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-05-18T14:39:09.713207+00:00",
-  "latest_date": "2026-05-18",
+  "generated_at": "2026-05-19T06:00:16.591280+00:00",
+  "latest_date": "2026-05-19",
   "available_dates": [
+    "2026-05-19",
     "2026-05-18",
     "2026-05-17",
     "2026-05-16",
@@ -43,9 +44,45 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 21,
-  "today_total": 5,
+  "total": 24,
+  "today_total": 3,
   "rows": [
+    {
+      "Keyword": "3d animation",
+      "Region": "Japan",
+      "Region Code": "JP",
+      "Date": "2026-05-19",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 1012650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=JP",
+      "Captured At": "2026-05-19T06:00:16.591280+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-19",
+      "Related Keyword": "when was 3d printing invented",
+      "Trend": "+19400%",
+      "Value": 19400,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=when%20was%203d%20printing%20invented&date=now%201-d&geo=US",
+      "Captured At": "2026-05-19T06:00:16.591280+00:00"
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-19",
+      "Related Keyword": "easy 3d printing ideas",
+      "Trend": "+9750%",
+      "Value": 9750,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=easy%203d%20printing%20ideas&date=now%201-d&geo=US",
+      "Captured At": "2026-05-19T06:00:16.591280+00:00"
+    },
     {
       "Keyword": "3d printing",
       "Region": "United States",
