@@ -86,13 +86,9 @@ def build_card(result: str, attempts: str, dashboard_url: str, summary: dict) ->
 
 
 def post(webhook: str, payload: dict) -> None:
+    # Keep ensure_ascii=False so the body carries raw UTF-8 instead of
+    # \\uXXXX escapes — Lark's keyword scanner is happier that way.
     data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
-    # Debug: print the exact bytes we are about to send so the workflow
-    # logs show what Lark actually receives. Critical for diagnosing
-    # keyword-matching failures (code 19024).
-    print(f"--- request body ({len(data)} bytes) ---")
-    print(data.decode("utf-8"))
-    print("--- end request body ---")
     req = urllib.request.Request(
         webhook,
         data=data,
