@@ -78,6 +78,14 @@
   }
   .badge-breakout { background: var(--breakout-bg); color: var(--breakout); }
   .badge-rising   { background: var(--rising-bg);   color: var(--rising); }
+  /* Category badges — colours hint at the SEO playbook they map to. */
+  .cat-Brand   { background: #b76dff22; color: #b76dff; }
+  .cat-Tool    { background: #5b9dff22; color: #5b9dff; }
+  .cat-Feature { background: #4ade8022; color: #4ade80; }
+  .cat-Info    { background: #fbbf2422; color: #fbbf24; }
+  .cat-IP      { background: #fb923c22; color: #fb923c; }
+  .cat-Other   { background: #6b728022; color: #9ca3af; }
+  .recurring { margin-right: 6px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .kw { font-weight: 500; }
@@ -107,10 +115,23 @@
   <select id="filter-date" title="Filter by date"><option value="">All dates</option></select>
   <select id="filter-keyword"><option value="">All keywords</option></select>
   <select id="filter-region"><option value="">All regions</option></select>
+  <select id="filter-category" title="Filter by SEO category">
+    <option value="">All categories</option>
+    <option value="Brand">Brand</option>
+    <option value="Tool">Tool</option>
+    <option value="Feature">Feature</option>
+    <option value="Info">Info</option>
+    <option value="IP">IP</option>
+    <option value="Other">Other</option>
+  </select>
   <select id="filter-trend">
     <option value="">All trends</option>
     <option value="Breakout">Breakout only</option>
     <option value="Rising">Rising only</option>
+  </select>
+  <select id="filter-recurring" title="Show only recurring keywords (>=2 days)">
+    <option value="">All</option>
+    <option value="1">🔥 Recurring only</option>
   </select>
   <span class="stat" id="count"></span>
 </div>
@@ -123,6 +144,7 @@
         <th data-key="Region">Region</th>
         <th data-key="Date">Date</th>
         <th data-key="Related Keyword">Related Keyword</th>
+        <th data-key="Category">Category</th>
         <th data-key="Value" class="sorted-desc">Trend</th>
         <th data-key="Trend Type">Type</th>
         <th>Verify</th>
@@ -225,13 +247,17 @@ function currentRows() {
   const fd = document.getElementById("filter-date").value;
   const fk = document.getElementById("filter-keyword").value;
   const fr = document.getElementById("filter-region").value;
+  const fc = document.getElementById("filter-category").value;
   const ft = document.getElementById("filter-trend").value;
+  const fRec = document.getElementById("filter-recurring").value;
   return allRows.filter(r => {
     if (fd && r.Date !== fd) return false;
     if (fk && r.Keyword !== fk) return false;
     if (fr && r.Region !== fr) return false;
+    if (fc && (r.Category || "Other") !== fc) return false;
     if (ft === "Breakout" && r.Trend !== "Breakout") return false;
     if (ft === "Rising"   && r.Trend === "Breakout") return false;
+    if (fRec === "1" && !r.Recurring) return false;
     if (q && !(r["Related Keyword"] || "").toLowerCase().includes(q)) return false;
     return true;
   });
@@ -251,17 +277,21 @@ function render() {
   });
 
   const tbody = document.getElementById("tbody");
-  tbody.innerHTML = rows.map(r => `
+  tbody.innerHTML = rows.map(r => {
+    const cat = r.Category || "Other";
+    const recurring = r.Recurring ? `<span class="recurring" title="Recurring (>=2 days)">🔥</span>` : "";
+    return `
     <tr>
       <td class="kw">${esc(r.Keyword)}</td>
       <td>${esc(r.Region)}</td>
       <td>${esc(r.Date)}</td>
-      <td class="related">${esc(r["Related Keyword"])}</td>
+      <td class="related">${recurring}${esc(r["Related Keyword"])}</td>
+      <td><span class="badge cat-${esc(cat)}">${esc(cat)}</span></td>
       <td><span class="badge ${r.Trend === "Breakout" ? "badge-breakout" : "badge-rising"}">${esc(r.Trend)}</span></td>
       <td>${esc(r["Trend Type"] || "Rising")}</td>
       <td><a href="${esc(r.Source)}" target="_blank" rel="noopener">↗</a></td>
-    </tr>
-  `).join("");
+    </tr>`;
+  }).join("");
 
   document.getElementById("empty").style.display = rows.length ? "none" : "block";
   document.getElementById("count").textContent =
@@ -291,7 +321,8 @@ document.querySelectorAll("thead th[data-key]").forEach(th => {
   };
 });
 
-["search", "filter-date", "filter-keyword", "filter-region", "filter-trend"].forEach(id =>
+["search", "filter-date", "filter-keyword", "filter-region",
+ "filter-category", "filter-trend", "filter-recurring"].forEach(id =>
   document.getElementById(id).addEventListener("input", render));
 
 document.getElementById("refresh").onclick = load;

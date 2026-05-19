@@ -38,6 +38,80 @@ FAILURE_RATIO_THRESHOLD = 0.5
 # pytrends encodes "Breakout" as a sentinel integer well above any real %.
 BREAKOUT_THRESHOLD = 100_000
 
+# A (Keyword, Related Keyword) pair appearing on this many distinct dates
+# gets flagged as "Recurring" in the dashboard — used as a 🔥 signal.
+RECURRING_MIN_DAYS = 2
+
+# ---- Category classification dictionaries -------------------------------
+# Substring match (case-insensitive). Order of checks matters: see classify().
+BRAND_TOKENS = {
+    "meshy", "tripo", "sketchfab", "luma ai", "luma", "rodin", "csm ai",
+    "spline", "kaedim", "alpha3d", "polycam", "scenario", "3dfy",
+    "masterpiece studio", "tinkercad", "fusion 360", "shapeways",
+    "thingiverse", "myminifactory", "thangs", "panzoid", "alpha 3d",
+}
+TOOL_TOKENS = {
+    "blender", "blenderkit", "unity", "unreal", "maya", "cinema 4d",
+    "3ds max", "zbrush", "houdini", "substance painter", "substance designer",
+    "photoshop", "after effects", "meshmixer", "cg trader", "cgtrader",
+    "asset store", "marketplace", "slicer", "slicing", "fusion",
+    "rhino", "solidworks", "freecad", "openscad", "prusaslicer", "cura",
+    "bambu", "creality", "ams",
+}
+FEATURE_PATTERNS = (
+    "image to 3d", "text to 3d", "ai 3d", "3d generator", "3d model generator",
+    "convert to 3d", "generator", "scan", "scanner", "to 3d model",
+    "software", "online", "free", "best",
+)
+QUESTION_STARTS = (
+    "what ", "how ", "why ", "when ", "where ", "which ",
+    "who ", "is ", "are ", "does ", "do ", "can ", "should ",
+    "will ", "wie ", "qu’est", "qu'est",
+)
+
+
+def classify(related_kw: str) -> str:
+    """Return one of: Brand / Tool / Feature / Info / IP / Other.
+
+    Cheap rules — no LLM. Categories drive the dashboard's SEO playbook.
+    """
+    s = (related_kw or "").lower().strip()
+    if not s:
+        return "Other"
+    # 1) Question / informational has the cleanest signal — check first.
+    if s.startswith(QUESTION_STARTS) or " vs " in s:
+        return "Info"
+    # 2) Brand match — direct competitor or recognized 3D platform.
+    if any(b in s for b in BRAND_TOKENS):
+        return "Brand"
+    # 3) Adjacent tool / ecosystem.
+    if any(t in s for t in TOOL_TOKENS):
+        return "Tool"
+    # 4) Generic feature / intent phrasing.
+    if any(p in s for p in FEATURE_PATTERNS):
+        return "Feature"
+    # 5) Anything left in this niche is almost always IP / content driven
+    # (character / movie / weapon / vehicle 3d model). Default there.
+    return "IP"
+
+
+def annotate_rows(rows: list[dict]) -> None:
+    """Mutate rows in place: add `Category` and `Recurring` fields.
+
+    Recurring = same (Keyword, Related Keyword) appears on >= RECURRING_MIN_DAYS
+    distinct dates anywhere in the dataset (sticky signal vs one-off spike).
+    """
+    from collections import defaultdict
+    pair_dates: dict[tuple, set] = defaultdict(set)
+    for r in rows:
+        pair_dates[(r.get("Keyword"), r.get("Related Keyword"))].add(r.get("Date"))
+    for r in rows:
+        r["Category"] = classify(r.get("Related Keyword", ""))
+        r["Recurring"] = (
+            len(pair_dates[(r.get("Keyword"), r.get("Related Keyword"))])
+            >= RECURRING_MIN_DAYS
+        )
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
@@ -203,6 +277,9 @@ def main() -> int:
             log.warning("Failed to read existing all.json: %s", e)
     today_dates = {today}
     merged_rows = [r for r in previous_rows if r.get("Date") not in today_dates] + rows
+    # Backfill Category + Recurring across the full history each run, so
+    # rule changes propagate to old rows on the next deploy.
+    annotate_rows(merged_rows)
     # Sort newest first, then by Value desc for nicer default view.
     merged_rows.sort(
         key=lambda r: (r.get("Date") or "", r.get("Value") or 0),
