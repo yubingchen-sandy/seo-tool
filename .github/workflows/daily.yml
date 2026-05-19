@@ -1,9 +1,15 @@
 name: Daily Google Trends Monitor
 
 on:
+  # GitHub Actions cron is best-effort and on low-activity repos it can
+  # slip by 1-12 hours. We schedule several near-09:30-Beijing slots; the
+  # "Skip if already ran today" gate makes sure only the first that
+  # actually fires does real work.
   schedule:
-    # 09:30 Asia/Shanghai (UTC+8) == 01:30 UTC
-    - cron: "30 1 * * *"
+    - cron: "30 1 * * *"    # 09:30 Beijing — preferred
+    - cron: "15 2 * * *"    # 10:15 Beijing — fallback 1
+    - cron: "15 3 * * *"    # 11:15 Beijing — fallback 2
+    - cron: "15 4 * * *"    # 12:15 Beijing — final fallback
   workflow_dispatch:
 
 permissions:
@@ -26,17 +32,42 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Skip if already ran today
+        id: gate
+        run: |
+          # Manual dispatches always run. Scheduled runs check whether
+          # today's snapshot was already collected successfully.
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::Manual trigger — running."
+            exit 0
+          fi
+          today=$(date -u +%Y-%m-%d)
+          if [ -f data/last_run_summary.json ]; then
+            last_date=$(python -c "import json; print(json.load(open('data/last_run_summary.json'))['date'])")
+            last_success=$(python -c "import json; print(json.load(open('data/last_run_summary.json'))['success'])")
+            if [ "$today" = "$last_date" ] && [ "$last_success" = "True" ]; then
+              echo "should_run=false" >> "$GITHUB_OUTPUT"
+              echo "::notice::Today's snapshot already collected — skipping."
+              exit 0
+            fi
+          fi
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+
       - name: Setup Python
+        if: steps.gate.outputs.should_run == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
 
       - name: Install dependencies
+        if: steps.gate.outputs.should_run == 'true'
         run: pip install -r requirements.txt
 
       - name: Run monitor (up to 3 attempts)
         id: run
+        if: steps.gate.outputs.should_run == 'true'
         continue-on-error: true
         run: |
           set +e
@@ -63,7 +94,7 @@ jobs:
           [ "$result" = "success" ]
 
       - name: Commit data
-        if: steps.run.outputs.result == 'success'
+        if: steps.gate.outputs.should_run == 'true' && steps.run.outputs.result == 'success'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -76,7 +107,7 @@ jobs:
           fi
 
       - name: Send Lark notification
-        if: always()
+        if: always() && steps.gate.outputs.should_run == 'true'
         env:
           LARK_WEBHOOK_URL: ${{ secrets.LARK_WEBHOOK_URL }}
           RUN_RESULT: ${{ steps.run.outputs.result }}
@@ -84,5 +115,5 @@ jobs:
         run: python scripts/notify_lark.py
 
       - name: Mark job failed if monitor never succeeded
-        if: steps.run.outputs.result != 'success'
+        if: steps.gate.outputs.should_run == 'true' && steps.run.outputs.result != 'success'
         run: exit 1
