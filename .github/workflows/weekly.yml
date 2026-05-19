@@ -1,0 +1,70 @@
+name: Weekly Keyword Tuning Review
+
+on:
+  schedule:
+    # 09:30 Asia/Shanghai Sunday == 01:30 UTC Sunday (best-effort cron)
+    - cron: "30 1 * * 0"
+    # Backup slots in case GitHub delays the primary cron.
+    - cron: "15 3 * * 0"   # 11:15 Beijing
+    - cron: "15 5 * * 0"   # 13:15 Beijing
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: trends-weekly
+  cancel-in-progress: false
+
+env:
+  DASHBOARD_URL: https://yubingchen-sandy.github.io/seo-tool/
+  WINDOW_DAYS: "14"
+  PROMOTION_MIN_DAYS: "2"
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Skip if already sent today
+        id: gate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::Manual trigger — running."
+            exit 0
+          fi
+          today=$(date -u +%Y-%m-%d)
+          # Look at prior runs of this same workflow that already succeeded
+          # today. The current run isn't in 'success' state yet, so it's
+          # excluded automatically.
+          count=$(gh run list \
+            --workflow weekly.yml \
+            --status success \
+            --limit 20 \
+            --json createdAt \
+            --jq "[.[] | select(.createdAt | startswith(\"$today\"))] | length")
+          if [ "${count:-0}" -gt 0 ]; then
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Weekly review already sent today ($count prior runs)."
+          else
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Python
+        if: steps.gate.outputs.should_run == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run weekly review
+        if: steps.gate.outputs.should_run == 'true'
+        env:
+          LARK_WEBHOOK_URL: ${{ secrets.LARK_WEBHOOK_URL }}
+        run: python scripts/weekly_review.py
