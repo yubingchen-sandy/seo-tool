@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-05-19T06:00:16.591280+00:00",
-  "latest_date": "2026-05-19",
+  "generated_at": "2026-05-20T12:05:56.221291+00:00",
+  "latest_date": "2026-05-20",
   "available_dates": [
+    "2026-05-20",
     "2026-05-19",
     "2026-05-18",
     "2026-05-17",
@@ -44,9 +45,93 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 24,
-  "today_total": 3,
+  "total": 30,
+  "today_total": 6,
   "rows": [
+    {
+      "Keyword": "3d asset",
+      "Region": "Germany",
+      "Region Code": "DE",
+      "Date": "2026-05-20",
+      "Related Keyword": "unity 3d asset store",
+      "Trend": "Breakout",
+      "Value": 1719400,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d&geo=DE",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "Tool",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "Germany",
+      "Region Code": "DE",
+      "Date": "2026-05-20",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 747350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=DE",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "Feature",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-20",
+      "Related Keyword": "resin 3d printing service",
+      "Trend": "+21100%",
+      "Value": 21100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=resin%203d%20printing%20service&date=now%201-d&geo=US",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-20",
+      "Related Keyword": "tiv 2 3d model",
+      "Trend": "+13050%",
+      "Value": 13050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=tiv%202%203d%20model&date=now%201-d&geo=US",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-20",
+      "Related Keyword": "3d printing in healthcare",
+      "Trend": "+10300%",
+      "Value": 10300,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20in%20healthcare&date=now%201-d&geo=US",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-20",
+      "Related Keyword": "what does no ams mean in 3d printing",
+      "Trend": "+3500%",
+      "Value": 3500,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=what%20does%20no%20ams%20mean%20in%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "Info",
+      "Recurring": true
+    },
     {
       "Keyword": "3d animation",
       "Region": "Japan",
@@ -57,7 +142,9 @@
       "Value": 1012650,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=JP",
-      "Captured At": "2026-05-19T06:00:16.591280+00:00"
+      "Captured At": "2026-05-19T06:00:16.591280+00:00",
+      "Category": "Feature",
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -69,7 +156,9 @@
       "Value": 19400,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=when%20was%203d%20printing%20invented&date=now%201-d&geo=US",
-      "Captured At": "2026-05-19T06:00:16.591280+00:00"
+      "Captured At": "2026-05-19T06:00:16.591280+00:00",
+      "Category": "Info",
+      "Recurring": false
     },
     {
       "Keyword": "3d printing",
@@ -81,7 +170,9 @@
       "Value": 9750,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=easy%203d%20printing%20ideas&date=now%201-d&geo=US",
-      "Captured At": "2026-05-19T06:00:16.591280+00:00"
+      "Captured At": "2026-05-19T06:00:16.591280+00:00",
+      "Category": "IP",
+      "Recurring": false
     },
     {
       "Keyword": "3d printing",
@@ -93,7 +184,9 @@
       "Value": 50850,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=cura%203d%20printing%20software&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T14:39:09.713207+00:00"
+      "Captured At": "2026-05-18T14:39:09.713207+00:00",
+      "Category": "Tool",
+      "Recurring": false
     },
     {
       "Keyword": "3d printing",
@@ -105,7 +198,9 @@
       "Value": 22050,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=what%20software%20to%20use%20for%203d%20printing&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T14:39:09.713207+00:00"
+      "Captured At": "2026-05-18T14:39:09.713207+00:00",
+      "Category": "Info",
+      "Recurring": false
     },
     {
       "Keyword": "3d printing",
@@ -117,7 +212,9 @@
       "Value": 21250,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=local%203d%20printing%20service&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T14:39:09.713207+00:00"
+      "Captured At": "2026-05-18T14:39:09.713207+00:00",
+      "Category": "IP",
+      "Recurring": false
     },
     {
       "Keyword": "3d printing",
@@ -129,7 +226,9 @@
       "Value": 18550,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20services%20near%20me&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T14:39:09.713207+00:00"
+      "Captured At": "2026-05-18T14:39:09.713207+00:00",
+      "Category": "IP",
+      "Recurring": false
     },
     {
       "Keyword": "3d model",
@@ -141,7 +240,9 @@
       "Value": 5750,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=meshmixer&date=now%201-d&geo=US",
-      "Captured At": "2026-05-18T14:39:09.713207+00:00"
+      "Captured At": "2026-05-18T14:39:09.713207+00:00",
+      "Category": "Tool",
+      "Recurring": false
     },
     {
       "Keyword": "3d asset",
@@ -153,7 +254,9 @@
       "Value": 2039400,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d&geo=JP",
-      "Captured At": "2026-05-17T09:13:26.188393+00:00"
+      "Captured At": "2026-05-17T09:13:26.188393+00:00",
+      "Category": "Tool",
+      "Recurring": true
     },
     {
       "Keyword": "3d model",
@@ -165,7 +268,9 @@
       "Value": 142000,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=rafale%203d%20model&date=now%201-d&geo=FR",
-      "Captured At": "2026-05-17T09:13:26.188393+00:00"
+      "Captured At": "2026-05-17T09:13:26.188393+00:00",
+      "Category": "IP",
+      "Recurring": false
     },
     {
       "Keyword": "3d text",
@@ -177,7 +282,9 @@
       "Value": 91150,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=panzoid%203d%20text&date=now%201-d&geo=US",
-      "Captured At": "2026-05-17T09:13:26.188393+00:00"
+      "Captured At": "2026-05-17T09:13:26.188393+00:00",
+      "Category": "Brand",
+      "Recurring": false
     },
     {
       "Keyword": "3d printing",
@@ -189,7 +296,9 @@
       "Value": 24050,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=genesis%203d%20printing&date=now%201-d&geo=US",
-      "Captured At": "2026-05-17T09:13:26.188393+00:00"
+      "Captured At": "2026-05-17T09:13:26.188393+00:00",
+      "Category": "IP",
+      "Recurring": false
     },
     {
       "Keyword": "3d animation",
@@ -201,7 +310,9 @@
       "Value": 925950,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d",
-      "Captured At": "2026-05-16T08:26:40.632771+00:00"
+      "Captured At": "2026-05-16T08:26:40.632771+00:00",
+      "Category": "Feature",
+      "Recurring": true
     },
     {
       "Keyword": "Meshy",
@@ -213,7 +324,9 @@
       "Value": 692700,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=tripo&date=now%201-d&geo=FR",
-      "Captured At": "2026-05-16T08:26:40.632771+00:00"
+      "Captured At": "2026-05-16T08:26:40.632771+00:00",
+      "Category": "Brand",
+      "Recurring": false
     },
     {
       "Keyword": "3d animation",
@@ -225,7 +338,9 @@
       "Value": 500100,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=FR",
-      "Captured At": "2026-05-16T08:26:40.632771+00:00"
+      "Captured At": "2026-05-16T08:26:40.632771+00:00",
+      "Category": "Feature",
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -237,7 +352,9 @@
       "Value": 4550,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=what%20does%20fdm%20stand%20for%20in%203d%20printing&date=now%201-d&geo=US",
-      "Captured At": "2026-05-16T08:26:40.632771+00:00"
+      "Captured At": "2026-05-16T08:26:40.632771+00:00",
+      "Category": "Info",
+      "Recurring": false
     },
     {
       "Keyword": "3d asset",
@@ -249,7 +366,9 @@
       "Value": 2343150,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d&geo=JP",
-      "Captured At": "2026-05-15T10:44:44.939536+00:00"
+      "Captured At": "2026-05-15T10:44:44.939536+00:00",
+      "Category": "Tool",
+      "Recurring": true
     },
     {
       "Keyword": "3d animation",
@@ -261,7 +380,9 @@
       "Value": 615450,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=DE",
-      "Captured At": "2026-05-15T10:44:44.939536+00:00"
+      "Captured At": "2026-05-15T10:44:44.939536+00:00",
+      "Category": "Feature",
+      "Recurring": true
     },
     {
       "Keyword": "3d model",
@@ -273,7 +394,9 @@
       "Value": 206250,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=image%20to%203d%20model&date=now%201-d&geo=FR",
-      "Captured At": "2026-05-15T10:44:44.939536+00:00"
+      "Captured At": "2026-05-15T10:44:44.939536+00:00",
+      "Category": "Feature",
+      "Recurring": false
     },
     {
       "Keyword": "3d model",
@@ -285,7 +408,9 @@
       "Value": 151650,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=image%20to%203d%20model&date=now%201-d",
-      "Captured At": "2026-05-15T10:44:44.939536+00:00"
+      "Captured At": "2026-05-15T10:44:44.939536+00:00",
+      "Category": "Feature",
+      "Recurring": false
     },
     {
       "Keyword": "3d model",
@@ -297,7 +422,9 @@
       "Value": 60950,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=sketchfab&date=now%201-d&geo=DE",
-      "Captured At": "2026-05-15T10:44:44.939536+00:00"
+      "Captured At": "2026-05-15T10:44:44.939536+00:00",
+      "Category": "Brand",
+      "Recurring": false
     },
     {
       "Keyword": "3d printing",
@@ -309,7 +436,9 @@
       "Value": 18750,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=thangs%203d%20printing&date=now%201-d&geo=US",
-      "Captured At": "2026-05-15T10:44:44.939536+00:00"
+      "Captured At": "2026-05-15T10:44:44.939536+00:00",
+      "Category": "Brand",
+      "Recurring": false
     },
     {
       "Keyword": "3d printing",
@@ -321,7 +450,9 @@
       "Value": 13350,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=what%20does%20no%20ams%20mean%20in%203d%20printing&date=now%201-d&geo=US",
-      "Captured At": "2026-05-15T10:44:44.939536+00:00"
+      "Captured At": "2026-05-15T10:44:44.939536+00:00",
+      "Category": "Info",
+      "Recurring": true
     },
     {
       "Keyword": "3d model",
@@ -333,7 +464,9 @@
       "Value": 10300,
       "Trend Type": "Rising",
       "Source": "https://trends.google.com/trends/explore?q=glock%20switch%203d%20model&date=now%201-d&geo=US",
-      "Captured At": "2026-05-15T10:44:44.939536+00:00"
+      "Captured At": "2026-05-15T10:44:44.939536+00:00",
+      "Category": "IP",
+      "Recurring": false
     }
   ]
 }

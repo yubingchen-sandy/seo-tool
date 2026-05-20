@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-05-20T12:05:56.221291+00:00",
+  "date": "2026-05-20",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 6,
+  "rows": [
+    {
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-20",
+      "Related Keyword": "tiv 2 3d model",
+      "Trend": "+13050%",
+      "Value": 13050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=tiv%202%203d%20model&date=now%201-d&geo=US",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-20",
+      "Related Keyword": "resin 3d printing service",
+      "Trend": "+21100%",
+      "Value": 21100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=resin%203d%20printing%20service&date=now%201-d&geo=US",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-20",
+      "Related Keyword": "3d printing in healthcare",
+      "Trend": "+10300%",
+      "Value": 10300,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20in%20healthcare&date=now%201-d&geo=US",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-20",
+      "Related Keyword": "what does no ams mean in 3d printing",
+      "Trend": "+3500%",
+      "Value": 3500,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=what%20does%20no%20ams%20mean%20in%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "Info",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d asset",
+      "Region": "Germany",
+      "Region Code": "DE",
+      "Date": "2026-05-20",
+      "Related Keyword": "unity 3d asset store",
+      "Trend": "Breakout",
+      "Value": 1719400,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d&geo=DE",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "Tool",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "Germany",
+      "Region Code": "DE",
+      "Date": "2026-05-20",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 747350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=DE",
+      "Captured At": "2026-05-20T12:05:56.221291+00:00",
+      "Category": "Feature",
+      "Recurring": true
+    }
+  ]
+}
