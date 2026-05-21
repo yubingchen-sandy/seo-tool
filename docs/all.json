@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-05-20T12:05:56.221291+00:00",
-  "latest_date": "2026-05-20",
+  "generated_at": "2026-05-21T12:34:03.865129+00:00",
+  "latest_date": "2026-05-21",
   "available_dates": [
+    "2026-05-21",
     "2026-05-20",
     "2026-05-19",
     "2026-05-18",
@@ -45,9 +46,23 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 30,
-  "today_total": 6,
+  "total": 31,
+  "today_total": 1,
   "rows": [
+    {
+      "Keyword": "3d model",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-21",
+      "Related Keyword": "vending machine 3d model",
+      "Trend": "Breakout",
+      "Value": 149000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=vending%20machine%203d%20model&date=now%201-d",
+      "Captured At": "2026-05-21T12:34:03.865129+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
     {
       "Keyword": "3d asset",
       "Region": "Germany",

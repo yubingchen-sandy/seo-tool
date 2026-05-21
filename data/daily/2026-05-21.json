@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-05-21T12:34:03.865129+00:00",
+  "date": "2026-05-21",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 1,
+  "rows": [
+    {
+      "Keyword": "3d model",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-21",
+      "Related Keyword": "vending machine 3d model",
+      "Trend": "Breakout",
+      "Value": 149000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=vending%20machine%203d%20model&date=now%201-d",
+      "Captured At": "2026-05-21T12:34:03.865129+00:00",
+      "Category": "IP",
+      "Recurring": false
+    }
+  ]
+}
