@@ -1,15 +1,10 @@
 name: Daily Google Trends Monitor
 
 on:
-  # GitHub Actions cron is best-effort and on low-activity repos it can
-  # slip by 1-12 hours. We schedule several near-09:30-Beijing slots; the
-  # "Skip if already ran today" gate makes sure only the first that
-  # actually fires does real work.
-  schedule:
-    - cron: "30 1 * * *"    # 09:30 Beijing — preferred
-    - cron: "15 2 * * *"    # 10:15 Beijing — fallback 1
-    - cron: "15 3 * * *"    # 11:15 Beijing — fallback 2
-    - cron: "15 4 * * *"    # 12:15 Beijing — final fallback
+  # GitHub Actions cron is too unreliable on low-activity repos (8-13h
+  # slip). Daily scheduling has moved to a Lark Base automation that
+  # calls workflow_dispatch precisely at 09:30 Beijing. Manual trigger
+  # is still available below.
   workflow_dispatch:
 
 permissions:
