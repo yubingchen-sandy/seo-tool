@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-05-23T01:30:22.423987+00:00",
+  "date": "2026-05-23",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 4,
+  "rows": [
+    {
+      "Keyword": "3d model",
+      "Region": "France",
+      "Region Code": "FR",
+      "Date": "2026-05-23",
+      "Related Keyword": "tinkercad",
+      "Trend": "+78800%",
+      "Value": 78800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=tinkercad&date=now%201-d&geo=FR",
+      "Captured At": "2026-05-23T01:30:22.423987+00:00",
+      "Category": "Brand",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-23",
+      "Related Keyword": "how to use blender for 3d printing",
+      "Trend": "+20950%",
+      "Value": 20950,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=how%20to%20use%20blender%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-23T01:30:22.423987+00:00",
+      "Category": "Info",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-23",
+      "Related Keyword": "thingyverse",
+      "Trend": "+12550%",
+      "Value": 12550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=thingyverse&date=now%201-d&geo=US",
+      "Captured At": "2026-05-23T01:30:22.423987+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d asset",
+      "Region": "Japan",
+      "Region Code": "JP",
+      "Date": "2026-05-23",
+      "Related Keyword": "unity 3d asset store",
+      "Trend": "Breakout",
+      "Value": 2951700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d&geo=JP",
+      "Captured At": "2026-05-23T01:30:22.423987+00:00",
+      "Category": "Tool",
+      "Recurring": true
+    }
+  ]
+}
