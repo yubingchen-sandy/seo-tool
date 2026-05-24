@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-05-24T01:30:24.868340+00:00",
+  "date": "2026-05-24",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 5,
+  "rows": [
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-24",
+      "Related Keyword": "3d printing service sculpteo",
+      "Trend": "Breakout",
+      "Value": 2281600,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service%20sculpteo&date=now%201-d&geo=US",
+      "Captured At": "2026-05-24T01:30:24.868340+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-24",
+      "Related Keyword": "bestlawyersinunitedstates.com official website",
+      "Trend": "+50100%",
+      "Value": 50100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=bestlawyersinunitedstates.com%20official%20website&date=now%201-d&geo=US",
+      "Captured At": "2026-05-24T01:30:24.868340+00:00",
+      "Category": "Feature",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-24",
+      "Related Keyword": "cad programs for 3d printing",
+      "Trend": "+5800%",
+      "Value": 5800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=cad%20programs%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-24T01:30:24.868340+00:00",
+      "Category": "Tool",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-24",
+      "Related Keyword": "3d printing service",
+      "Trend": "+550%",
+      "Value": 550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service&date=now%201-d&geo=US",
+      "Captured At": "2026-05-24T01:30:24.868340+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-24",
+      "Related Keyword": "mixamo",
+      "Trend": "+63300%",
+      "Value": 63300,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=mixamo&date=now%201-d&geo=US",
+      "Captured At": "2026-05-24T01:30:24.868340+00:00",
+      "Category": "IP",
+      "Recurring": false
+    }
+  ]
+}
