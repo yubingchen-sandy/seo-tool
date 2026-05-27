@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-05-26T01:30:32.584116+00:00",
-  "latest_date": "2026-05-26",
+  "generated_at": "2026-05-27T01:30:35.374389+00:00",
+  "latest_date": "2026-05-27",
   "available_dates": [
+    "2026-05-27",
     "2026-05-26",
     "2026-05-25",
     "2026-05-24",
@@ -50,9 +51,121 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 49,
-  "today_total": 4,
+  "total": 57,
+  "today_total": 8,
   "rows": [
+    {
+      "Keyword": "3d asset",
+      "Region": "Japan",
+      "Region Code": "JP",
+      "Date": "2026-05-27",
+      "Related Keyword": "unity 3d asset store",
+      "Trend": "Breakout",
+      "Value": 2458900,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d&geo=JP",
+      "Captured At": "2026-05-27T01:30:35.374389+00:00",
+      "Category": "Tool",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-27",
+      "Related Keyword": "icon 3d printing",
+      "Trend": "Breakout",
+      "Value": 104300,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=icon%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-27T01:30:35.374389+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-27",
+      "Related Keyword": "3d printing templates",
+      "Trend": "+25900%",
+      "Value": 25900,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20templates&date=now%201-d&geo=US",
+      "Captured At": "2026-05-27T01:30:35.374389+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-27",
+      "Related Keyword": "icon 3d printing stock",
+      "Trend": "+20800%",
+      "Value": 20800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=icon%203d%20printing%20stock&date=now%201-d&geo=US",
+      "Captured At": "2026-05-27T01:30:35.374389+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-27",
+      "Related Keyword": "3d printing jobs near me",
+      "Trend": "+19150%",
+      "Value": 19150,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20jobs%20near%20me&date=now%201-d&geo=US",
+      "Captured At": "2026-05-27T01:30:35.374389+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-27",
+      "Related Keyword": "strongest filament for 3d printing",
+      "Trend": "+12800%",
+      "Value": 12800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=strongest%20filament%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-27T01:30:35.374389+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-27",
+      "Related Keyword": ".stl files for 3d printing",
+      "Trend": "+6100%",
+      "Value": 6100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=.stl%20files%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-27T01:30:35.374389+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-27",
+      "Related Keyword": "image to 3d model",
+      "Trend": "+700%",
+      "Value": 700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=image%20to%203d%20model&date=now%201-d",
+      "Captured At": "2026-05-27T01:30:35.374389+00:00",
+      "Category": "Feature",
+      "Recurring": true
+    },
     {
       "Keyword": "3d model",
       "Region": "Germany",
@@ -667,7 +780,7 @@
       "Source": "https://trends.google.com/trends/explore?q=image%20to%203d%20model&date=now%201-d&geo=FR",
       "Captured At": "2026-05-15T10:44:44.939536+00:00",
       "Category": "Feature",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d model",
@@ -681,7 +794,7 @@
       "Source": "https://trends.google.com/trends/explore?q=image%20to%203d%20model&date=now%201-d",
       "Captured At": "2026-05-15T10:44:44.939536+00:00",
       "Category": "Feature",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d model",
