@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-05-27T01:30:35.374389+00:00",
-  "latest_date": "2026-05-27",
+  "generated_at": "2026-05-28T01:30:36.374046+00:00",
+  "latest_date": "2026-05-28",
   "available_dates": [
+    "2026-05-28",
     "2026-05-27",
     "2026-05-26",
     "2026-05-25",
@@ -51,9 +52,37 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 57,
-  "today_total": 8,
+  "total": 59,
+  "today_total": 2,
   "rows": [
+    {
+      "Keyword": "3d asset",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-28",
+      "Related Keyword": "unity 3d asset store",
+      "Trend": "Breakout",
+      "Value": 2071750,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d",
+      "Captured At": "2026-05-28T01:30:36.374046+00:00",
+      "Category": "Tool",
+      "Recurring": true
+    },
+    {
+      "Keyword": "image to 3d",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-28",
+      "Related Keyword": "ryan kavanaugh",
+      "Trend": "Breakout",
+      "Value": 107200,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=ryan%20kavanaugh&date=now%201-d&geo=US",
+      "Captured At": "2026-05-28T01:30:36.374046+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
     {
       "Keyword": "3d asset",
       "Region": "Japan",
