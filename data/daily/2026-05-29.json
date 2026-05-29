@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-05-29T01:30:32.710234+00:00",
+  "date": "2026-05-29",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 3,
+  "rows": [
+    {
+      "Keyword": "Tripo",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-29",
+      "Related Keyword": "tripo ia",
+      "Trend": "Breakout",
+      "Value": 1033900,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=tripo%20ia&date=now%201-d",
+      "Captured At": "2026-05-29T01:30:32.710234+00:00",
+      "Category": "Brand",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-29",
+      "Related Keyword": "homelander 3d model",
+      "Trend": "+10650%",
+      "Value": 10650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=homelander%203d%20model&date=now%201-d&geo=US",
+      "Captured At": "2026-05-29T01:30:32.710234+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-29",
+      "Related Keyword": "create a 3d model from a picture",
+      "Trend": "+4350%",
+      "Value": 4350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=create%20a%203d%20model%20from%20a%20picture&date=now%201-d&geo=US",
+      "Captured At": "2026-05-29T01:30:32.710234+00:00",
+      "Category": "IP",
+      "Recurring": false
+    }
+  ]
+}
