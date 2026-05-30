@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-05-30T01:30:31.676962+00:00",
+  "date": "2026-05-30",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 5,
+  "rows": [
+    {
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-30",
+      "Related Keyword": "generate 3d model from image",
+      "Trend": "+14000%",
+      "Value": 14000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=generate%203d%20model%20from%20image&date=now%201-d&geo=US",
+      "Captured At": "2026-05-30T01:30:31.676962+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-30",
+      "Related Keyword": "best free 3d modeling software for 3d printing",
+      "Trend": "+15350%",
+      "Value": 15350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=best%20free%203d%20modeling%20software%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-05-30T01:30:31.676962+00:00",
+      "Category": "Feature",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Germany",
+      "Region Code": "DE",
+      "Date": "2026-05-30",
+      "Related Keyword": "3d printing service",
+      "Trend": "+500%",
+      "Value": 500,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service&date=now%201-d&geo=DE",
+      "Captured At": "2026-05-30T01:30:31.676962+00:00",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "image to 3d",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-30",
+      "Related Keyword": "background remover",
+      "Trend": "Breakout",
+      "Value": 118800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=background%20remover&date=now%201-d&geo=US",
+      "Captured At": "2026-05-30T01:30:31.676962+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-30",
+      "Related Keyword": "first 3d animation movie",
+      "Trend": "Breakout",
+      "Value": 168450,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=first%203d%20animation%20movie&date=now%201-d&geo=US",
+      "Captured At": "2026-05-30T01:30:31.676962+00:00",
+      "Category": "IP",
+      "Recurring": false
+    }
+  ]
+}
