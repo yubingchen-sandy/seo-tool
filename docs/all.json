@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-05-30T01:30:31.676962+00:00",
-  "latest_date": "2026-05-30",
+  "generated_at": "2026-05-31T01:30:28.347077+00:00",
+  "latest_date": "2026-05-31",
   "available_dates": [
+    "2026-05-31",
     "2026-05-30",
     "2026-05-29",
     "2026-05-28",
@@ -54,9 +55,107 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 67,
-  "today_total": 5,
+  "total": 74,
+  "today_total": 7,
   "rows": [
+    {
+      "Keyword": "3d animation",
+      "Region": "Japan",
+      "Region Code": "JP",
+      "Date": "2026-05-31",
+      "Related Keyword": "3d animation software",
+      "Trend": "Breakout",
+      "Value": 2219400,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=JP",
+      "Captured At": "2026-05-31T01:30:28.347077+00:00",
+      "Category": "Feature",
+      "Recurring": true
+    },
+    {
+      "Keyword": "image to 3d",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-31",
+      "Related Keyword": "akool image to video",
+      "Trend": "Breakout",
+      "Value": 144350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=akool%20image%20to%20video&date=now%201-d&geo=US",
+      "Captured At": "2026-05-31T01:30:28.347077+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-31",
+      "Related Keyword": "bestlawyersinunitedstates.com official website",
+      "Trend": "+49900%",
+      "Value": 49900,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=bestlawyersinunitedstates.com%20official%20website&date=now%201-d&geo=US",
+      "Captured At": "2026-05-31T01:30:28.347077+00:00",
+      "Category": "Feature",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Meshy",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-05-31",
+      "Related Keyword": "cults3d",
+      "Trend": "+27050%",
+      "Value": 27050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=cults3d&date=now%201-d",
+      "Captured At": "2026-05-31T01:30:28.347077+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-31",
+      "Related Keyword": "3d printing service sculpteo",
+      "Trend": "+14150%",
+      "Value": 14150,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service%20sculpteo&date=now%201-d&geo=US",
+      "Captured At": "2026-05-31T01:30:28.347077+00:00",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-31",
+      "Related Keyword": "3d printing supplies near me",
+      "Trend": "+7850%",
+      "Value": 7850,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20supplies%20near%20me&date=now%201-d&geo=US",
+      "Captured At": "2026-05-31T01:30:28.347077+00:00",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-05-31",
+      "Related Keyword": "3d printing service",
+      "Trend": "+750%",
+      "Value": 750,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service&date=now%201-d&geo=US",
+      "Captured At": "2026-05-31T01:30:28.347077+00:00",
+      "Category": "IP",
+      "Recurring": true
+    },
     {
       "Keyword": "3d animation",
       "Region": "United States",
@@ -447,7 +546,7 @@
       "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service%20sculpteo&date=now%201-d&geo=US",
       "Captured At": "2026-05-24T01:30:24.868340+00:00",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d animation",
@@ -475,7 +574,7 @@
       "Source": "https://trends.google.com/trends/explore?q=bestlawyersinunitedstates.com%20official%20website&date=now%201-d&geo=US",
       "Captured At": "2026-05-24T01:30:24.868340+00:00",
       "Category": "Feature",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
