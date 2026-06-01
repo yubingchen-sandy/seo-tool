@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-06-01T01:30:34.499506+00:00",
+  "date": "2026-06-01",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 2,
+  "rows": [
+    {
+      "Keyword": "image to 3d",
+      "Region": "Germany",
+      "Region Code": "DE",
+      "Date": "2026-06-01",
+      "Related Keyword": "image to 3d model free",
+      "Trend": "Breakout",
+      "Value": 2410700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=image%20to%203d%20model%20free&date=now%201-d&geo=DE",
+      "Captured At": "2026-06-01T01:30:34.499506+00:00",
+      "Category": "Feature",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "Japan",
+      "Region Code": "JP",
+      "Date": "2026-06-01",
+      "Related Keyword": "3d animation software",
+      "Trend": "+500%",
+      "Value": 500,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20animation%20software&date=now%201-d&geo=JP",
+      "Captured At": "2026-06-01T01:30:34.499506+00:00",
+      "Category": "Feature",
+      "Recurring": true
+    }
+  ]
+}
