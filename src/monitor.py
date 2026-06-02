@@ -125,6 +125,31 @@ def load_config() -> dict:
         return yaml.safe_load(f)
 
 
+def normalize_keyword_entry(item) -> tuple[str, str, bool]:
+    """Accept a keyword entry from keywords.yml in either form:
+
+      - plain string  ->  ("Sketchfab", "Sketchfab", False)
+      - dict          ->  ("Sketchfab", "/m/0nlsrl_", True)   # entity match
+        { name: Sketchfab, entity: "/m/0nlsrl_" }
+
+    Returns (display_name, query_term, is_entity).
+    `display_name` is what shows up in the dashboard & rows.
+    `query_term` is what we pass to the Google Trends API — either
+    a plain string (BROAD match) or an entity / topic id (entity match).
+    """
+    if isinstance(item, str):
+        return item, item, False
+    if isinstance(item, dict):
+        name = item.get("name") or ""
+        if not name:
+            raise ValueError(f"Keyword dict missing `name`: {item!r}")
+        entity = (item.get("entity") or "").strip()
+        if entity:
+            return name, entity, True
+        return name, name, False
+    raise ValueError(f"Bad keyword entry: {item!r}")
+
+
 def normalize_value(raw) -> tuple[int | None, str]:
     """Return (numeric_value_or_None, display_label).
 
@@ -151,23 +176,27 @@ def build_trends_link(query: str, geo: str, timeframe: str) -> str:
 
 def fetch_rising(
     pytrends: TrendReq,
-    keyword: str,
+    query_term: str,
     geo: str,
     timeframe: str,
     threshold: int,
     retries: int = 3,
 ) -> list[dict] | None:
-    """Fetch rising related queries for one keyword/region.
+    """Fetch rising related queries for one query_term/region.
+
+    `query_term` is either a plain string (BROAD match) or a Trends
+    entity id like "/m/0nlsrl_" (entity / topic match). Entity match
+    typically returns substantially more rising queries for brands
+    (closer to what the Google Trends web UI surfaces).
 
     Returns a (possibly empty) list when Google responded; ``None`` when
-    every retry failed to get a response (treated as a real failure by the
-    caller).
+    every retry failed to get a response.
     """
     for attempt in range(retries):
         try:
-            pytrends.build_payload([keyword], timeframe=timeframe, geo=geo)
+            pytrends.build_payload([query_term], timeframe=timeframe, geo=geo)
             related = pytrends.related_queries()
-            block = related.get(keyword) or {}
+            block = related.get(query_term) or {}
             rising = block.get("rising")
             if rising is None or rising.empty:
                 return []
@@ -188,26 +217,28 @@ def fetch_rising(
             return results
         except TooManyRequestsError:
             wait = 30 * (attempt + 1) + random.uniform(0, 10)
-            log.warning("429 rate limit on %s/%s — sleeping %.1fs", keyword, geo or "WORLD", wait)
+            log.warning("429 rate limit on %s/%s — sleeping %.1fs", query_term, geo or "WORLD", wait)
             time.sleep(wait)
         except ResponseError as e:
-            log.warning("ResponseError on %s/%s: %s", keyword, geo or "WORLD", e)
+            log.warning("ResponseError on %s/%s: %s", query_term, geo or "WORLD", e)
             time.sleep(5 * (attempt + 1))
         except Exception as e:  # noqa: BLE001
-            log.error("Unexpected error on %s/%s: %s", keyword, geo or "WORLD", e)
+            log.error("Unexpected error on %s/%s: %s", query_term, geo or "WORLD", e)
             time.sleep(5)
-    log.error("Gave up on %s/%s after %d retries", keyword, geo or "WORLD", retries)
+    log.error("Gave up on %s/%s after %d retries", query_term, geo or "WORLD", retries)
     return None
 
 
 def main() -> int:
     cfg = load_config()
-    keywords = list(cfg.get("brands", [])) + list(cfg.get("industry", []))
+    raw_entries = list(cfg.get("brands", [])) + list(cfg.get("industry", []))
+    # Each entry becomes (display_name, query_term, is_entity).
+    keyword_entries = [normalize_keyword_entry(e) for e in raw_entries]
     regions = cfg.get("regions", [])
     threshold = int(cfg.get("threshold", 500))
     timeframe = cfg.get("timeframe", "now 7-d")
 
-    if not keywords or not regions:
+    if not keyword_entries or not regions:
         log.error("keywords.yml is missing keywords or regions")
         return 1
 
@@ -228,23 +259,25 @@ def main() -> int:
     captured_at = now_utc.isoformat()
 
     rows: list[dict] = []
-    total = len(keywords) * len(regions)
+    total = len(keyword_entries) * len(regions)
     failed_queries = 0
     i = 0
-    for kw in keywords:
+    for display_name, query_term, is_entity in keyword_entries:
         for region in regions:
             i += 1
             geo = region.get("code", "")
             geo_name = region.get("name", geo or "Global")
-            log.info("[%d/%d] %s @ %s", i, total, kw, geo_name)
-            hits = fetch_rising(pytrends, kw, geo, timeframe, threshold)
+            tag = "[entity]" if is_entity else "[broad]"
+            log.info("[%d/%d] %s %s (%s) @ %s",
+                     i, total, tag, display_name, query_term, geo_name)
+            hits = fetch_rising(pytrends, query_term, geo, timeframe, threshold)
             if hits is None:
                 failed_queries += 1
             else:
                 for hit in hits:
                     rows.append(
                         {
-                            "Keyword": kw,
+                            "Keyword": display_name,
                             "Region": geo_name,
                             "Region Code": geo or "WORLD",
                             "Date": today,
@@ -254,6 +287,7 @@ def main() -> int:
                             "Trend Type": "Rising",
                             "Source": build_trends_link(hit["related_query"], geo, timeframe),
                             "Captured At": captured_at,
+                            "Match Type": "entity" if is_entity else "broad",
                         }
                     )
             # be polite — pytrends is unofficial and Google rate-limits hard
@@ -289,8 +323,9 @@ def main() -> int:
 
     # Full configured scope so the dashboard's filter dropdowns can list
     # every monitored keyword/region, including ones that have not yet
-    # produced any rising data above the threshold.
-    monitored_keywords = list(keywords)
+    # produced any rising data above the threshold. We surface the
+    # display name only — entity ids stay internal.
+    monitored_keywords = [name for name, _, _ in keyword_entries]
     monitored_regions = [r.get("name", r.get("code") or "Global") for r in regions]
 
     # --- write outputs ----------------------------------------------------

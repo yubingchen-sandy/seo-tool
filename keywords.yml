@@ -5,10 +5,18 @@
 
 # -- Brand keywords --------------------------------------------------------
 # Meshy + main 3D-generation competitors.
+#
+# Each entry is either:
+#   - a plain string                       -> BROAD string match (default)
+#   - { name: "X", entity: "/m/XXXXX" }    -> entity / topic match
+#
+# Entity match returns substantially more rising queries for established
+# brands (closer to the Google Trends web UI). Run
+# `python scripts/discover_entities.py` to look up entity ids in batch.
 brands:
   - Meshy
   - Tripo
-  - Sketchfab
+  - { name: "Sketchfab", entity: "/m/0nlsrl_" }   # Online platform
   - Luma AI
   - Rodin AI
   - CSM AI
