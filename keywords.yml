@@ -16,7 +16,10 @@
 brands:
   - Meshy
   - Tripo
-  - { name: "Sketchfab", entity: "/m/0nlsrl_" }   # Online platform
+  - Sketchfab    # entity match disabled — pytrends 4.9.2 sends entity ids
+                 # as BROAD strings, which Google rejects with HTTP 400.
+                 # Re-enable once we migrate to a lib that supports topic
+                 # mids (e.g. trendspy) or switch to SerpAPI.
   - Luma AI
   - Rodin AI
   - CSM AI
