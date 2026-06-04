@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-06-04T01:30:30.948955+00:00",
+  "date": "2026-06-04",
+  "threshold": 500,
+  "timeframe": "now 1-d",
+  "total": 3,
+  "rows": [
+    {
+      "Keyword": "Meshy",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-04",
+      "Related Keyword": "leonardo ai",
+      "Trend": "Breakout",
+      "Value": 120950,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=leonardo%20ai&date=now%201-d&geo=US",
+      "Captured At": "2026-06-04T01:30:30.948955+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-04",
+      "Related Keyword": "3d printing service sculpteo",
+      "Trend": "+11000%",
+      "Value": 11000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service%20sculpteo&date=now%201-d&geo=US",
+      "Captured At": "2026-06-04T01:30:30.948955+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d asset",
+      "Region": "Germany",
+      "Region Code": "DE",
+      "Date": "2026-06-04",
+      "Related Keyword": "unity 3d asset store",
+      "Trend": "Breakout",
+      "Value": 3183500,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=unity%203d%20asset%20store&date=now%201-d&geo=DE",
+      "Captured At": "2026-06-04T01:30:30.948955+00:00",
+      "Match Type": "broad",
+      "Category": "Tool",
+      "Recurring": true
+    }
+  ]
+}
