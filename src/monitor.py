@@ -18,8 +18,9 @@ from urllib.parse import quote
 
 import pandas as pd
 import yaml
-from pytrends.exceptions import ResponseError, TooManyRequestsError
-from pytrends.request import TrendReq
+from requests.exceptions import HTTPError, RequestException
+from trendspy import Trends
+from trendspy.client import TrendsQuotaExceededError
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = REPO_ROOT / "keywords.yml"
@@ -175,29 +176,28 @@ def build_trends_link(query: str, geo: str, timeframe: str) -> str:
 
 
 def fetch_rising(
-    pytrends: TrendReq,
+    client: Trends,
     query_term: str,
     geo: str,
     timeframe: str,
     threshold: int,
     retries: int = 3,
 ) -> list[dict] | None:
-    """Fetch rising related queries for one query_term/region.
-
-    `query_term` is either a plain string (BROAD match) or a Trends
-    entity id like "/m/0nlsrl_" (entity / topic match). Entity match
-    typically returns substantially more rising queries for brands
-    (closer to what the Google Trends web UI surfaces).
+    """Fetch rising related queries for one query_term/region using trendspy.
 
     Returns a (possibly empty) list when Google responded; ``None`` when
     every retry failed to get a response.
+
+    Note: trendspy's BROAD match returns substantially more rising
+    queries than pytrends for the same keyword (pytrends has a known
+    underreporting bug for brand-type queries).
     """
     for attempt in range(retries):
         try:
-            pytrends.build_payload([query_term], timeframe=timeframe, geo=geo)
-            related = pytrends.related_queries()
-            block = related.get(query_term) or {}
-            rising = block.get("rising")
+            related = client.related_queries(
+                query_term, timeframe=timeframe, geo=geo
+            )
+            rising = (related or {}).get("rising") if related else None
             if rising is None or rising.empty:
                 return []
             results = []
@@ -215,17 +215,30 @@ def fetch_rising(
                     }
                 )
             return results
-        except TooManyRequestsError:
+        except TrendsQuotaExceededError:
             wait = 30 * (attempt + 1) + random.uniform(0, 10)
-            log.warning("429 rate limit on %s/%s — sleeping %.1fs", query_term, geo or "WORLD", wait)
+            log.warning("Quota / 429 on %s/%s — sleeping %.1fs",
+                        query_term, geo or "WORLD", wait)
             time.sleep(wait)
-        except ResponseError as e:
-            log.warning("ResponseError on %s/%s: %s", query_term, geo or "WORLD", e)
+        except HTTPError as e:
+            status = e.response.status_code if e.response is not None else "?"
+            log.warning("HTTP %s on %s/%s: %s", status, query_term,
+                        geo or "WORLD", e)
+            # HTTP 400 means the query string is malformed (e.g. an
+            # unsupported entity id). Retrying won't help.
+            if status == 400:
+                return None
+            time.sleep(5 * (attempt + 1))
+        except RequestException as e:
+            log.warning("Network error on %s/%s: %s", query_term,
+                        geo or "WORLD", e)
             time.sleep(5 * (attempt + 1))
         except Exception as e:  # noqa: BLE001
-            log.error("Unexpected error on %s/%s: %s", query_term, geo or "WORLD", e)
+            log.error("Unexpected error on %s/%s: %s",
+                      query_term, geo or "WORLD", e)
             time.sleep(5)
-    log.error("Gave up on %s/%s after %d retries", query_term, geo or "WORLD", retries)
+    log.error("Gave up on %s/%s after %d retries",
+              query_term, geo or "WORLD", retries)
     return None
 
 
@@ -246,12 +259,14 @@ def main() -> int:
     DAILY_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_ALL.parent.mkdir(parents=True, exist_ok=True)
 
-    pytrends = TrendReq(
-        hl="en-US",
-        tz=0,
-        timeout=(10, 30),
-        retries=2,
-        backoff_factor=0.5,
+    # trendspy: roughly drop-in replacement for pytrends but the BROAD
+    # match consistently returns more rising-query rows (closer to the
+    # Google Trends web UI). Constructor args differ from pytrends.
+    client = Trends(
+        language="en-US",
+        tzs=0,
+        request_delay=2.0,   # extra polite to avoid 429
+        max_retries=3,
     )
 
     now_utc = datetime.now(timezone.utc)
@@ -270,7 +285,7 @@ def main() -> int:
             tag = "[entity]" if is_entity else "[broad]"
             log.info("[%d/%d] %s %s (%s) @ %s",
                      i, total, tag, display_name, query_term, geo_name)
-            hits = fetch_rising(pytrends, query_term, geo, timeframe, threshold)
+            hits = fetch_rising(client, query_term, geo, timeframe, threshold)
             if hits is None:
                 failed_queries += 1
             else:
