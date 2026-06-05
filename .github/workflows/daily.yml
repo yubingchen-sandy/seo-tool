@@ -22,7 +22,10 @@ env:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # Bumped to 120 because heavy 429 days can make individual queries
+    # spend 3-5 minutes retrying. Circuit breaker in monitor.py caps the
+    # total wall time well before this.
+    timeout-minutes: 120
     steps:
       - name: Checkout
         uses: actions/checkout@v4

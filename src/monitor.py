@@ -36,6 +36,12 @@ RUN_SUMMARY = REPO_ROOT / "data" / "last_run_summary.json"
 # NOT count as failure — quiet days are legitimate.
 FAILURE_RATIO_THRESHOLD = 0.5
 
+# Circuit breaker: if this many consecutive queries fail (None response
+# from fetch_rising), abandon the rest of the loop and save partial data.
+# Once Google starts hard-quota-ing the runner IP, further queries are
+# just going to burn wall-clock without producing anything useful.
+CONSECUTIVE_FAILURE_BREAKER = 8
+
 # pytrends encodes "Breakout" as a sentinel integer well above any real %.
 BREAKOUT_THRESHOLD = 100_000
 
@@ -276,8 +282,13 @@ def main() -> int:
     rows: list[dict] = []
     total = len(keyword_entries) * len(regions)
     failed_queries = 0
+    consecutive_failures = 0
+    aborted_early = False
     i = 0
+    outer_break = False
     for display_name, query_term, is_entity in keyword_entries:
+        if outer_break:
+            break
         for region in regions:
             i += 1
             geo = region.get("code", "")
@@ -288,7 +299,19 @@ def main() -> int:
             hits = fetch_rising(client, query_term, geo, timeframe, threshold)
             if hits is None:
                 failed_queries += 1
+                consecutive_failures += 1
+                if consecutive_failures >= CONSECUTIVE_FAILURE_BREAKER:
+                    log.error(
+                        "Circuit breaker tripped after %d consecutive failed "
+                        "queries — abandoning remaining %d queries and saving "
+                        "partial data.",
+                        consecutive_failures, total - i,
+                    )
+                    aborted_early = True
+                    outer_break = True
+                    break
             else:
+                consecutive_failures = 0
                 for hit in hits:
                     rows.append(
                         {
@@ -308,11 +331,17 @@ def main() -> int:
             # be polite — pytrends is unofficial and Google rate-limits hard
             time.sleep(random.uniform(2.5, 4.5))
 
+    # If the circuit breaker tripped, count the unattempted tail as
+    # failures so the run is correctly marked as below-coverage.
+    if aborted_early:
+        failed_queries += (total - i)
     success_queries = total - failed_queries
     failure_ratio = failed_queries / total if total else 0.0
     log.info(
-        "Collected %d rows across %d/%d successful queries (%.1f%% failure)",
+        "Collected %d rows across %d/%d successful queries "
+        "(%.1f%% failure)%s",
         len(rows), success_queries, total, failure_ratio * 100,
+        " [ABORTED EARLY]" if aborted_early else "",
     )
 
     # --- merge with previous all.json -------------------------------------
