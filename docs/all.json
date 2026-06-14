@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-06-13T01:30:26.840194+00:00",
-  "latest_date": "2026-06-13",
+  "generated_at": "2026-06-14T01:30:29.780796+00:00",
+  "latest_date": "2026-06-14",
   "available_dates": [
+    "2026-06-14",
     "2026-06-13",
     "2026-06-12",
     "2026-06-11",
@@ -68,9 +69,1194 @@
   ],
   "threshold": 500,
   "timeframe": "now 1-d",
-  "total": 659,
-  "today_total": 86,
+  "total": 738,
+  "today_total": 79,
   "rows": [
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "3d printing service sculpteo",
+      "Trend": "Breakout",
+      "Value": 2383100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service%20sculpteo&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d image",
+      "Region": "France",
+      "Region Code": "FR",
+      "Date": "2026-06-14",
+      "Related Keyword": "gemini",
+      "Trend": "Breakout",
+      "Value": 451750,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=gemini&date=now%201-d&geo=FR",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Scenario",
+      "Region": "France",
+      "Region Code": "FR",
+      "Date": "2026-06-14",
+      "Related Keyword": "dream scenario",
+      "Trend": "Breakout",
+      "Value": 261550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=dream%20scenario&date=now%201-d&geo=FR",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Brand",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "France",
+      "Region Code": "FR",
+      "Date": "2026-06-14",
+      "Related Keyword": "printables",
+      "Trend": "Breakout",
+      "Value": 166600,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=printables&date=now%201-d&geo=FR",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d image",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "background remover",
+      "Trend": "Breakout",
+      "Value": 100700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=background%20remover&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d generator",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "random number generator",
+      "Trend": "+62050%",
+      "Value": 62050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=random%20number%20generator&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Feature",
+      "Recurring": true
+    },
+    {
+      "Keyword": "ai 3d model",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "thingiverse",
+      "Trend": "+60050%",
+      "Value": 60050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=thingiverse&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Brand",
+      "Recurring": true
+    },
+    {
+      "Keyword": "ai 3d model",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "cgtrader",
+      "Trend": "+51450%",
+      "Value": 51450,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=cgtrader&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Tool",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "lawdefiner.com site",
+      "Trend": "+49450%",
+      "Value": 49450,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=lawdefiner.com%20site&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d character",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "character creator 4",
+      "Trend": "+47600%",
+      "Value": 47600,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=character%20creator%204&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "healthrova.com guides",
+      "Trend": "+44800%",
+      "Value": 44800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=healthrova.com%20guides&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "legalsynopsis.com definitions",
+      "Trend": "+42250%",
+      "Value": 42250,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=legalsynopsis.com%20definitions&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "bestlawyersinunitedstates.com official website",
+      "Trend": "+42200%",
+      "Value": 42200,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=bestlawyersinunitedstates.com%20official%20website&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Feature",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "freshorahealth.com",
+      "Trend": "+41750%",
+      "Value": 41750,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=freshorahealth.com&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Meshy",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "openscad",
+      "Trend": "+41250%",
+      "Value": 41250,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=openscad&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Tool",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "healthflexio.com",
+      "Trend": "+37250%",
+      "Value": 37250,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=healthflexio.com&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "healthavera.com stress relief",
+      "Trend": "+36100%",
+      "Value": 36100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=healthavera.com%20stress%20relief&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "travelchasm.com beaches",
+      "Trend": "+36050%",
+      "Value": 36050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=travelchasm.com%20beaches&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Meshy",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "çeviri",
+      "Trend": "+34450%",
+      "Value": 34450,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=%C3%A7eviri&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "image to 3d",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "background remover",
+      "Trend": "+31450%",
+      "Value": 31450,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=background%20remover&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "soothhealth.com skin care",
+      "Trend": "+30400%",
+      "Value": 30400,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=soothhealth.com%20skin%20care&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Tripo",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "tripp",
+      "Trend": "+29500%",
+      "Value": 29500,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=tripp&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "healthnuro.com site",
+      "Trend": "+29400%",
+      "Value": 29400,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=healthnuro.com%20site&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "travelgilt.com us travel guides",
+      "Trend": "+28750%",
+      "Value": 28750,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=travelgilt.com%20us%20travel%20guides&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Spline",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "discount tire",
+      "Trend": "+28600%",
+      "Value": 28600,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=discount%20tire&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "index checker rapid index checker",
+      "Trend": "+28200%",
+      "Value": 28200,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=index%20checker%20rapid%20index%20checker&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "wellavorhealth.com",
+      "Trend": "+27850%",
+      "Value": 27850,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=wellavorhealth.com&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Luma AI",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "runwayml",
+      "Trend": "+25250%",
+      "Value": 25250,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=runwayml&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "rapid index checker",
+      "Trend": "+24700%",
+      "Value": 24700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=rapid%20index%20checker&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Meshy",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "제미 나이",
+      "Trend": "+24250%",
+      "Value": 24250,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=%EC%A0%9C%EB%AF%B8%20%EB%82%98%EC%9D%B4&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "3d printing service sculpteo",
+      "Trend": "+22250%",
+      "Value": 22250,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service%20sculpteo&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Luma AI",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "meigen ai",
+      "Trend": "+22200%",
+      "Value": 22200,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=meigen%20ai&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "soothhealth.com skin care",
+      "Trend": "+20450%",
+      "Value": 20450,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=soothhealth.com%20skin%20care&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Meshy",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "suno",
+      "Trend": "+18800%",
+      "Value": 18800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=suno&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "how to use blender for 3d printing",
+      "Trend": "+18200%",
+      "Value": 18200,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=how%20to%20use%20blender%20for%203d%20printing&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Info",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Luma AI",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "digen ai",
+      "Trend": "+16300%",
+      "Value": 16300,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=digen%20ai&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Meshy",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "bambulab",
+      "Trend": "+16000%",
+      "Value": 16000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=bambulab&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Tool",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "freshorahealth.com",
+      "Trend": "+15650%",
+      "Value": 15650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=freshorahealth.com&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Luma AI",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "hailou ai",
+      "Trend": "+15200%",
+      "Value": 15200,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=hailou%20ai&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "yogalith.com",
+      "Trend": "+15000%",
+      "Value": 15000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=yogalith.com&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Spline",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "jegs",
+      "Trend": "+14350%",
+      "Value": 14350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=jegs&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d image",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "new york times",
+      "Trend": "+14300%",
+      "Value": 14300,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=new%20york%20times&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "image to 3d",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "photopea",
+      "Trend": "+14000%",
+      "Value": 14000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=photopea&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Tripo",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "elevenlabs",
+      "Trend": "+13850%",
+      "Value": 13850,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=elevenlabs&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "healthflexio.com",
+      "Trend": "+13850%",
+      "Value": 13850,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=healthflexio.com&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "healthrova.com guides",
+      "Trend": "+13800%",
+      "Value": 13800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=healthrova.com%20guides&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Luma AI",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "chatgbt",
+      "Trend": "+13550%",
+      "Value": 13550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=chatgbt&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "travelchasm.com beaches",
+      "Trend": "+12800%",
+      "Value": 12800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=travelchasm.com%20beaches&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Tripo",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "accurig",
+      "Trend": "+12550%",
+      "Value": 12550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=accurig&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "healthavera.com stress relief",
+      "Trend": "+12450%",
+      "Value": 12450,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=healthavera.com%20stress%20relief&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Luma AI",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "killing ai",
+      "Trend": "+12100%",
+      "Value": 12100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=killing%20ai&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Spline",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "21st dev",
+      "Trend": "+11850%",
+      "Value": 11850,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=21st%20dev&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "bestlawyersinunitedstates.com official website",
+      "Trend": "+11650%",
+      "Value": 11650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=bestlawyersinunitedstates.com%20official%20website&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Feature",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "wellavorhealth.com",
+      "Trend": "+11600%",
+      "Value": 11600,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=wellavorhealth.com&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Sketchfab",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "cg trader",
+      "Trend": "+11550%",
+      "Value": 11550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=cg%20trader&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Tool",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d image",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "walmart near me",
+      "Trend": "+11350%",
+      "Value": 11350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=walmart%20near%20me&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Sketchfab",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "pexels",
+      "Trend": "+10650%",
+      "Value": 10650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=pexels&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Luma AI",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "kingai",
+      "Trend": "+10200%",
+      "Value": 10200,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=kingai&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "index checker rapid index checker",
+      "Trend": "+9800%",
+      "Value": 9800,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=index%20checker%20rapid%20index%20checker&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "3d printing troubleshooting",
+      "Trend": "+9550%",
+      "Value": 9550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20troubleshooting&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Sketchfab",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "3dsky",
+      "Trend": "+9300%",
+      "Value": 9300,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3dsky&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "rapid index checker",
+      "Trend": "+9050%",
+      "Value": 9050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=rapid%20index%20checker&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d model",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "dominator 3 3d model",
+      "Trend": "+8950%",
+      "Value": 8950,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=dominator%203%203d%20model&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d animation",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "google flow",
+      "Trend": "+8250%",
+      "Value": 8250,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=google%20flow&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "travelgilt.com us travel guides",
+      "Trend": "+7900%",
+      "Value": 7900,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=travelgilt.com%20us%20travel%20guides&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d image",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "hitem3d",
+      "Trend": "+7750%",
+      "Value": 7750,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=hitem3d&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Sketchfab",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "tripo 3d",
+      "Trend": "+7350%",
+      "Value": 7350,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=tripo%203d&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Brand",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "3d printers for sale",
+      "Trend": "+7100%",
+      "Value": 7100,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printers%20for%20sale&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Sketchfab",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "vecteezy",
+      "Trend": "+6550%",
+      "Value": 6550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=vecteezy&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Luma AI",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "ideogram ai",
+      "Trend": "+5950%",
+      "Value": 5950,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=ideogram%20ai&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Scenario",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "dungeon crawler carl series",
+      "Trend": "+5000%",
+      "Value": 5000,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=dungeon%20crawler%20carl%20series&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Scenario",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "worst-case scenario meaning",
+      "Trend": "+4750%",
+      "Value": 4750,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=worst-case%20scenario%20meaning&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Brand",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Scenario",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "api design principles",
+      "Trend": "+1550%",
+      "Value": 1550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=api%20design%20principles&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "lawdefiner.com site",
+      "Trend": "+1050%",
+      "Value": 1050,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=lawdefiner.com%20site&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "3d printing service",
+      "Trend": "+700%",
+      "Value": 700,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=3d%20printing%20service&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Spline",
+      "Region": "United States",
+      "Region Code": "US",
+      "Date": "2026-06-14",
+      "Related Keyword": "7 spline lug nut key",
+      "Trend": "+650%",
+      "Value": 650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=7%20spline%20lug%20nut%20key&date=now%201-d&geo=US",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Brand",
+      "Recurring": false
+    },
+    {
+      "Keyword": "3d printing",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "healthnuro.com site",
+      "Trend": "+650%",
+      "Value": 650,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=healthnuro.com%20site&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": true
+    },
+    {
+      "Keyword": "Spline",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "screwfix",
+      "Trend": "+550%",
+      "Value": 550,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=screwfix&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "IP",
+      "Recurring": false
+    },
+    {
+      "Keyword": "Scenario",
+      "Region": "Global",
+      "Region Code": "WORLD",
+      "Date": "2026-06-14",
+      "Related Keyword": "taida na akujoku kizoku ni tensei shita ore, scenario wo bukkowa shitara kikaku-gai no maryoku de saikyou ni natta",
+      "Trend": "+500%",
+      "Value": 500,
+      "Trend Type": "Rising",
+      "Source": "https://trends.google.com/trends/explore?q=taida%20na%20akujoku%20kizoku%20ni%20tensei%20shita%20ore%2C%20scenario%20wo%20bukkowa%20shitara%20kikaku-gai%20no%20maryoku%20de%20saikyou%20ni%20natta&date=now%201-d",
+      "Captured At": "2026-06-14T01:30:29.780796+00:00",
+      "Match Type": "broad",
+      "Category": "Brand",
+      "Recurring": true
+    },
     {
       "Keyword": "3d asset",
       "Region": "Germany",
@@ -129,7 +1315,7 @@
       "Captured At": "2026-06-13T01:30:26.840194+00:00",
       "Match Type": "broad",
       "Category": "Brand",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Scenario",
@@ -1179,7 +2365,7 @@
       "Captured At": "2026-06-13T01:30:26.840194+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -1839,7 +3025,7 @@
       "Captured At": "2026-06-12T01:30:33.243534+00:00",
       "Match Type": "broad",
       "Category": "Brand",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Luma AI",
@@ -2214,7 +3400,7 @@
       "Captured At": "2026-06-12T01:30:33.243534+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -2409,7 +3595,7 @@
       "Captured At": "2026-06-12T01:30:33.243534+00:00",
       "Match Type": "broad",
       "Category": "Brand",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d asset",
@@ -3459,7 +4645,7 @@
       "Captured At": "2026-06-10T01:30:31.343224+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Spline",
@@ -4074,7 +5260,7 @@
       "Captured At": "2026-06-09T01:30:36.349755+00:00",
       "Match Type": "broad",
       "Category": "Feature",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d text",
@@ -4194,7 +5380,7 @@
       "Captured At": "2026-06-09T01:30:36.349755+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -4419,7 +5605,7 @@
       "Captured At": "2026-06-09T01:30:36.349755+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -5724,7 +6910,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "text to 3d",
@@ -5799,7 +6985,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Spline",
@@ -5844,7 +7030,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -5859,7 +7045,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -5919,7 +7105,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Luma AI",
@@ -5949,7 +7135,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -5964,7 +7150,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "ai 3d model",
@@ -6009,7 +7195,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -6024,7 +7210,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -6039,7 +7225,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -6054,7 +7240,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Tripo",
@@ -6174,7 +7360,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -6189,7 +7375,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Scenario",
@@ -6204,7 +7390,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Scenario",
@@ -6234,7 +7420,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d image",
@@ -6264,7 +7450,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Sketchfab",
@@ -6294,7 +7480,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d generator",
@@ -6369,7 +7555,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d animation",
@@ -6444,7 +7630,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Luma AI",
@@ -6609,7 +7795,7 @@
       "Captured At": "2026-06-07T01:31:18.010941+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Luma AI",
@@ -6939,7 +8125,7 @@
       "Captured At": "2026-06-06T01:30:31.465042+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Tripo",
@@ -7359,7 +8545,7 @@
       "Captured At": "2026-06-06T01:30:31.465042+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d animation",
@@ -7764,7 +8950,7 @@
       "Captured At": "2026-06-05T13:37:16.322358+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Spline",
@@ -7899,7 +9085,7 @@
       "Captured At": "2026-06-05T13:37:16.322358+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "image to 3d",
@@ -8019,7 +9205,7 @@
       "Captured At": "2026-06-05T13:37:16.322358+00:00",
       "Match Type": "broad",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "Meshy",
@@ -8968,7 +10154,7 @@
       "Source": "https://trends.google.com/trends/explore?q=background%20remover&date=now%201-d&geo=US",
       "Captured At": "2026-05-30T01:30:31.676962+00:00",
       "Category": "IP",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
@@ -9430,7 +10616,7 @@
       "Source": "https://trends.google.com/trends/explore?q=how%20to%20use%20blender%20for%203d%20printing&date=now%201-d&geo=US",
       "Captured At": "2026-05-23T01:30:22.423987+00:00",
       "Category": "Info",
-      "Recurring": false
+      "Recurring": true
     },
     {
       "Keyword": "3d printing",
