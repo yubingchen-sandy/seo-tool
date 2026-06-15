@@ -1,13 +1,13 @@
 {
   "success": true,
-  "date": "2026-06-14",
-  "captured_at": "2026-06-14T01:30:29.780796+00:00",
+  "date": "2026-06-15",
+  "captured_at": "2026-06-15T01:30:39.914927+00:00",
   "total_queries": 125,
   "failed_queries": 2,
   "success_queries": 123,
   "failure_ratio": 0.016,
-  "rising_keywords_today": 79,
-  "rising_keywords_total_history": 738,
+  "rising_keywords_today": 71,
+  "rising_keywords_total_history": 809,
   "timeframe": "now 1-d",
   "threshold": 500,
   "failure_threshold": 0.5
