@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trend Radar · Meshy 热点选题</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#171b22;--muted:#5b6470;--line:#d9dde3;--accent:#245a8d;--new:#1f7a4d;--upd:#9a6a12;--watch:#5b6470}
+@media(prefers-color-scheme:dark){:root{--bg:#12151a;--card:#1a1e25;--ink:#e6e9ee;--muted:#98a2b3;--line:#2a3038;--accent:#7fb2e5;--new:#5cc48c;--upd:#e0b25b;--watch:#a5aebb}}
+body{margin:0;padding:28px 16px 60px;background:var(--bg);color:var(--ink);font:14.5px/1.65 -apple-system,"PingFang SC","Segoe UI",Roboto,sans-serif}
+main{max-width:1100px;margin:0 auto}
+h1{font-size:22px;margin:0 0 4px}.sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+.nav a{color:var(--accent);font-size:13px;margin-right:14px}
+.kpis{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.kpi{background:var(--card);border:1px solid var(--line);padding:10px 14px;min-width:120px}
+.kpi b{display:block;font-size:22px;font-variant-numeric:tabular-nums}.kpi span{font-size:12px;color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+select,input{font:inherit;padding:5px 8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.tbl{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);white-space:nowrap;cursor:pointer}
+.pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.new_page{color:var(--new)}.update_existing{color:var(--upd)}.watch{color:var(--watch)}
+.muted{color:var(--muted)}details{margin-top:28px}summary{cursor:pointer;font-weight:600}
+a{color:var(--accent)}
+</style>
+</head>
+<body><main>
+<div class="nav"><a href="./index.html">← Google Trends 上升词看板</a></div>
+<h1>Trend Radar · Meshy 热点选题</h1>
+<div class="sub" id="sub">加载中…</div>
+<div class="kpis" id="kpis"></div>
+<div class="filters">
+  <select id="fDecision"><option value="">全部判定</option><option value="new_page">新建页面</option><option value="update_existing">更新既有页</option><option value="watch">观察</option></select>
+  <select id="fIntent"><option value="">全部意图</option></select>
+  <input id="fText" placeholder="搜索标题 / 目标词" style="min-width:220px">
+</div>
+<div class="tbl"><table id="tbl"><thead><tr>
+<th>判定</th><th>Intent</th><th>选题</th><th>目标词</th><th>桥接</th><th>站内处理</th><th>信号</th><th>置信</th></tr></thead><tbody></tbody></table></div>
+<details><summary>粗筛候选（分类前，前 150 条）</summary><div class="tbl" style="margin-top:10px"><table id="cands"><thead><tr><th>分</th><th>标题</th><th>来源</th><th>站内重叠</th></tr></thead><tbody></tbody></table></div></details>
+</main>
+<script>
+(async()=>{
+  let d; try{ d=await (await fetch("./radar/latest.json?ts="+Date.now(),{cache:"no-store"})).json(); }catch(e){ document.getElementById("sub").textContent="暂无数据（radar/latest.json 未生成）"; return; }
+  const s=d.stats||{}, sl=d.shortlist||[];
+  document.getElementById("sub").textContent=`数据日期 ${d.date} · 生成于 ${new Date(d.generated_at).toLocaleString()} · 模型 ${(d.llm||{}).model||"—"}`;
+  const kp=[["原始信号",s.raw_items],["聚类",s.clusters],["候选",s.n_candidates],["入队",sl.length],["新建",sl.filter(v=>v.decision==="new_page").length],["更新",sl.filter(v=>v.decision==="update_existing").length]];
+  document.getElementById("kpis").innerHTML=kp.map(([k,v])=>`<div class="kpi"><b>${v??"—"}</b><span>${k}</span></div>`).join("");
+  const intents=[...new Set(sl.map(v=>v.intent_type))].sort();
+  document.getElementById("fIntent").innerHTML+=intents.map(i=>`<option>${i}</option>`).join("");
+  const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const label={new_page:"新建",update_existing:"更新",watch:"观察"};
+  function render(){
+    const fd=fDecision.value, fi=fIntent.value, ft=fText.value.toLowerCase();
+    const rows=sl.filter(v=>(!fd||v.decision===fd)&&(!fi||v.intent_type===fi)&&(!ft||(v.topic_en+" "+v.target_keyword+" "+v.candidate.title).toLowerCase().includes(ft)));
+    document.querySelector("#tbl tbody").innerHTML=rows.map(v=>{const c=v.candidate;
+      const site=v.decision==="update_existing"?`更新 <code>${esc(v.target_url)}</code>`:(v.internal_links||[]).length?`新页，内链：${v.internal_links.map(esc).join("<br>")}`:"新页";
+      return `<tr><td><span class="pill ${v.decision}">${label[v.decision]||v.decision}</span></td><td>${esc(v.intent_type)}<br><span class="muted">${esc(v.page_type)}</span></td>
+      <td><b>${esc(v.topic_en)}</b><br><span class="muted">${esc(c.title)}</span>${c.urls&&c.urls[0]?` <a href="${esc(c.urls[0])}" target="_blank" rel="noopener">↗</a>`:""}</td>
+      <td>${esc(v.target_keyword)}</td><td>${esc(v.bridge)}</td><td>${site}</td>
+      <td>${c.sources.length} 源 · 分 ${c.score}<br><span class="muted">${c.sources.slice(0,3).map(esc).join(", ")}</span>${(v.risk_flags||[]).length?`<br><span class="watch">⚑ ${v.risk_flags.join(", ")}</span>`:""}</td>
+      <td>${(v.confidence??0).toFixed(2)}</td></tr>`}).join("")||`<tr><td colspan="8" class="muted">无匹配</td></tr>`;
+  }
+  ["fDecision","fIntent","fText"].forEach(id=>document.getElementById(id).addEventListener("input",render)); render();
+  document.querySelector("#cands tbody").innerHTML=(d.candidates||[]).map(c=>`<tr><td>${c.score}</td><td>${esc(c.title)}</td><td class="muted">${c.sources.slice(0,4).map(esc).join(", ")}</td><td class="muted">${(c.existing_page_overlap||[]).map(esc).join("<br>")}</td></tr>`).join("");
+})();
+</script>
+</body></html>
