@@ -1,0 +1,236 @@
+# =============================================================================
+# Trend Radar — Red lines（红线词表）
+# =============================================================================
+# Two enforcement points:
+#   1. `hard_block` patterns drop a candidate BEFORE it reaches the LLM
+#      (case-insensitive substring / regex on the title).
+#   2. `protected_ip`, `brand_noise`, `off_topic`, `forbidden_claims` are
+#      passed into the classification prompt; the model must DROP a topic
+#      whose subject is one of these, but may keep it when the term is only
+#      background (e.g. "Roblox lets creators ship standalone apps" is fine,
+#      "make your own Pokémon in 3D" is not).
+# Review with SEO + legal before first production run. Edit freely.
+
+# ---- 1. Hard block: never even shown to the model ----------------------------
+hard_block:
+  politics_government:
+    - election
+    - "voter registration"
+    - impeach
+    - senate
+    - congress
+    - parliament
+    - president trump
+    - biden
+    - kremlin
+    - "prime minister"
+    - sanctions
+    - tariff
+    - immigration raid
+    - "grand jury"
+  war_violence_crime:
+    - war crime
+    - airstrike
+    - missile
+    - shooting
+    - murder
+    - homicide
+    - terror
+    - hostage
+    - genocide
+    - "military aid"
+    - weapon system
+    - firearm
+    - ghost gun
+    - "3d printed gun"
+  disaster_health:
+    - hurricane
+    - earthquake
+    - wildfire
+    - flooding
+    - measles
+    - outbreak
+    - pandemic
+    - covid
+    - cancer patient
+    - suicide
+    - overdose
+  adult_hate:
+    - nsfw
+    - porn
+    - onlyfans
+    - nude
+    - hentai
+    - deepfake
+    - racist
+    - slur
+  gambling_crypto_scam:
+    - casino
+    - betting
+    - sportsbook
+    - memecoin
+    - airdrop
+    - "presale token"
+    - pump and dump
+  religion:
+    - church shooting
+    - blasphemy
+    - jihad
+
+# ---- 2. Protected IP: DROP when it is the *subject* of the page ----------------
+# Reason: we cannot publish "generate <IP> 3D models" pages; fan-art angles
+# invite takedowns and hurt E-E-A-T. Industry-news mentions are fine.
+protected_ip:
+  games:
+    - pokemon
+    - pokémon
+    - nintendo
+    - mario
+    - zelda
+    - kirby
+    - animal crossing
+    - splatoon
+    - minecraft mob    # Minecraft the platform is OK; Mojang characters/skins as subject are not
+    - fortnite skin    # Fortnite Creative/UEFN tooling OK; Epic-owned skins not
+    - gta
+    - grand theft auto
+    - call of duty
+    - warhammer
+    - "games workshop"
+    - genshin
+    - honkai
+    - hoyoverse
+    - league of legends
+    - valorant
+    - overwatch
+    - elden ring
+    - dark souls
+    - final fantasy
+    - dragon quest
+    - sonic the hedgehog
+    - halo
+    - "the legend of"
+    - hollow knight
+    - silksong
+    - palworld
+    - stardew
+    - among us
+    - "five nights at freddy"
+    - fnaf
+    - deadlock
+    - dota
+    - counter-strike
+    - apex legends
+    - destiny 2
+    - resident evil
+    - monster hunter
+    - tomb raider
+    - assassin's creed
+    - "star wars"
+    - "star trek"
+  film_tv_anime:
+    - disney
+    - pixar
+    - marvel
+    - dc comics
+    - batman
+    - superman
+    - spider-man
+    - avengers
+    - harry potter
+    - "lord of the rings"
+    - "game of thrones"
+    - "stranger things"
+    - "squid game"
+    - naruto
+    - one piece
+    - dragon ball
+    - "demon slayer"
+    - "jujutsu kaisen"
+    - "attack on titan"
+    - evangelion
+    - ghibli
+    - "my hero academia"
+    - hello kitty
+    - sanrio
+    - labubu
+    - "pop mart"
+    - barbie
+    - transformers
+    - "lego"          # LEGO as brand-subject is off-limits; "brick parts generator" (generic) is our own tool page
+  brands_celebrities:
+    - nike
+    - adidas
+    - apple logo
+    - tesla
+    - ferrari
+    - lamborghini
+    - rolex
+    - gucci
+    - louis vuitton
+    - taylor swift
+    - beyonce
+    - kpop
+    - bts
+    - blackpink
+    - mrbeast
+    - ishowspeed
+    - kai cenat
+  # 允许的例外写法（供审核参考，不需要机器执行）：
+  # "IP 作为行业新闻背景" 可以保留，例如 "Roblox 与 Kodansha 签 IP 授权"，页面主题是 Roblox 授权机制，不是漫画角色。
+
+# ---- 3. Brand-noise: rising queries that share a word with a seed brand ------
+# seo-tool seeds are brand names; Google returns homonyms. Drop when the
+# related query is about these senses.
+brand_noise:
+  Tripo: [zara, holafly, "virgin holidays", trip advisor, tripadvisor, travel, hotel, flight, vacation]
+  Scenario: [lyrics, 歌詞, "love scenario", ikon, betekenis, pluriel, "worst case", "wurst case", "grey goo", eas, meaning, definition]
+  Spline: [chart, excel, regression, "spline interpolation", math, python, scipy]
+  Luma AI: [luma dream machine review only if unrelated to 3D, lumapay, luma fitness]
+  Rodin AI: [auguste rodin, sculptor, museum, "the thinker"]
+  Kaedim: []
+  Polycam: [polycamp]
+  Meshy: [meshy top, meshy dress, "mesh wifi", meshy shirt]
+  Sketchfab: [sketchpad, sketchup pro price]   # SketchUp itself is a legit 3D tool; keep "sketchup vs" queries
+  3d model: [3d model kits car, "3d model porn", nude]
+  3d printing: [jasa, "near me", storefront, franchise, stock price, earnings, dental implant, aerospace, automotive plant]
+
+# ---- 4. Off-topic industrial / medical / construction 3D ----------------------
+# 3D printing and scanning news that never touches a creator workflow.
+off_topic:
+  - additive manufacturing plant
+  - metal additive
+  - aerospace
+  - implant
+  - prosthetic
+  - dental
+  - orthopedic
+  - yacht
+  - construction 3d print
+  - concrete printing
+  - housing print
+  - bridge print
+  - oil pump
+  - jet engine
+  - defense contract
+  - "series b"
+  - "series a"
+  - acquisition rumor
+  - metrology
+  - x-ray
+  - ct scan
+  - lidar mapping survey
+  - robotic welding
+
+# ---- 5. Forbidden claims: never a page angle, regardless of trend --------------
+# The classifier must not propose pages built on these promises.
+forbidden_claims:
+  - 'Meshy generates game-ready assets with zero cleanup'
+  - 'Meshy replaces 3D artists / "no artists needed"'
+  - 'Meshy output is copyright-free / "commercial use guaranteed" without pointing to the actual terms'
+  - 'Meshy is free (only the free tier is; never say the product is free)'
+  - 'Meshy models are 3D-print-ready without checking (manifold / wall thickness)'
+  - 'Any price, credit amount or limit not copied from meshy.ai/pricing at time of writing'
+  - 'Any competitor pricing or feature claim without a dated source link'
+  - '"Best" / "#1" claims without a comparison table backing them'
+  - 'Medical, legal, financial or safety advice of any kind'
