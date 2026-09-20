@@ -201,6 +201,7 @@ weights:
   hn_points_cap: 4
   reddit_score_cap: 4
   youtube_views_cap: 4
+  query_breadth_cap: 3   # bonus for being hit by several Google News / HN queries
 min_relevance_single_source: 1   # rel <= 0 and only one source -> dropped pre-LLM
 
 # -- LLM classification -------------------------------------------------------

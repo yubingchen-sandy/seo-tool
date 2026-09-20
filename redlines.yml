@@ -183,8 +183,9 @@ protected_ip:
 # seo-tool seeds are brand names; Google returns homonyms. Drop when the
 # related query is about these senses.
 brand_noise:
+  _all: ["near me", lidl, walmart, costco, aldi, target hours, weather, "opening hours", "stock price", earnings, lyrics, playoff]   # applied to every seed
   Tripo: [zara, holafly, "virgin holidays", trip advisor, tripadvisor, travel, hotel, flight, vacation]
-  Scenario: [lyrics, 歌詞, "love scenario", ikon, betekenis, pluriel, "worst case", "wurst case", "grey goo", eas, meaning, definition]
+  Scenario: [lyrics, 歌詞, "love scenario", "dream scenario", ikon, betekenis, pluriel, "worst case", "wurst case", "grey goo", eas, meaning, definition, playoff, dvd, movie, film, nicolas cage]
   Spline: [chart, excel, regression, "spline interpolation", math, python, scipy]
   Luma AI: [luma dream machine review only if unrelated to 3D, lumapay, luma fitness]
   Rodin AI: [auguste rodin, sculptor, museum, "the thinker"]

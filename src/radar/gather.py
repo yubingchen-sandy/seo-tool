@@ -212,7 +212,8 @@ class Gatherer:
             rows = data["rows"] if isinstance(data, dict) else data
             for r in rows:
                 kw, rel = r.get("Keyword", ""), r.get("Related Keyword", "")
-                if any(n and n.lower() in rel.lower() for n in noise.get(kw, []) or []):
+                noise_terms = list(noise.get(kw, []) or []) + list(noise.get("_all", []) or [])
+                if any(n and str(n).lower() in rel.lower() for n in noise_terms):
                     self.source_stats["brand_noise_dropped"] += 1
                     continue
                 self.add("trends_rising", f"seo-tool:{kw}/{r.get('Region')}", rel, r.get("Source", ""),
@@ -274,6 +275,30 @@ class Gatherer:
             except Exception as e:  # noqa: BLE001
                 self.source_errors.append(f"youtube:{q}:{type(e).__name__}")
 
+    _ORIGIN_ALIAS = {"80level": "80lv", "thedecoder": "the-decoder", "creativebloq": "creativebloq",
+                     "3dprintingindustry": "3dprintingindustry", "gamesindustrybiz": "gamesindustry"}
+
+    @classmethod
+    def _norm_origin(cls, name: str) -> str:
+        n = re.sub(r"[^a-z0-9]", "", (name or "unknown").lower())
+        for suf in ("com", "net", "org", "biz"):
+            if n.endswith(suf) and len(n) > len(suf) + 2:
+                n = n[: -len(suf)]
+        return cls._ORIGIN_ALIAS.get(n, n)
+
+    @classmethod
+    def _origin(cls, item: dict) -> str:
+        st, m = item["source_type"], item["meta"]
+        if st == "news":
+            return f"pub:{cls._norm_origin(m.get('publisher'))}"
+        if st == "industry_rss":
+            return f"pub:{cls._norm_origin(item['source'])}"
+        if st == "trends_rising":
+            return f"seo-tool:{m.get('seed')}"
+        if st == "youtube":
+            return f"yt:{m.get('channel') or 'unknown'}"
+        return st  # hn, trends_now, reddit:<sub> handled via source
+
     # ------------------------------------------------------------- sitemap
     def load_sitemap_slugs(self) -> list[str]:
         """English page paths of meshy.ai, refreshed daily and cached for offline runs."""
@@ -326,14 +351,16 @@ class Gatherer:
         clusters: list[dict] = []
         for it in self.items:
             tk = toks(it["title"])
+            norm = re.sub(r"[^a-z0-9]", "", it["title"].lower())
             for c in clusters:
                 inter = len(tk & c["toks"])
-                if inter >= 3 and inter / max(1, min(len(tk), len(c["toks"]))) >= 0.5:
+                if norm in c["norms"] or (inter >= 3 and inter / max(1, min(len(tk), len(c["toks"]))) >= 0.5):
                     c["items"].append(it)
                     c["toks"] |= tk
+                    c["norms"].add(norm)
                     break
             else:
-                clusters.append({"toks": set(tk), "items": [it]})
+                clusters.append({"toks": set(tk), "norms": {norm}, "items": [it]})
 
         slugs = self.load_sitemap_slugs()
         generic = {"meshy", "model", "models", "free", "online", "tool", "tools", "guide", "2026", "best", "top"}
@@ -357,12 +384,18 @@ class Gatherer:
             negs = [k for k in neg if k in low]
             rel = len(hits) - 2 * len(negs)
             stypes = collections.Counter(i["source_type"] for i in its)
-            nsrc = len({i["source"] for i in its})
+            # Independent origins = distinct outlets/feeds, not distinct search
+            # queries: one TechBullion article hit by 9 Google News queries is
+            # still one origin. Query breadth is scored separately (capped).
+            origins = {self._origin(i) for i in its}
+            nsrc = len(origins)
+            n_queries = len({i["source"] for i in its if i["source_type"] in ("news", "hn", "youtube")})
             hn_pts = sum(i["meta"].get("points", 0) for i in its if i["source_type"] == "hn")
             rd_pts = sum(i["meta"].get("score", 0) for i in its if i["source_type"] == "reddit")
             yt_views = sum(i["meta"].get("views", 0) for i in its if i["source_type"] == "youtube")
             score = (w.get("lexicon_hit", 2) * rel
                      + w.get("extra_source", 3) * (nsrc - 1)
+                     + min(w.get("query_breadth_cap", 3), max(0, n_queries - 1))
                      + (w.get("has_rising", 3) if "trends_rising" in stypes else 0)
                      + (w.get("has_trends_now", 2) if "trends_now" in stypes else 0)
                      + min(w.get("hn_points_cap", 4), hn_pts * w.get("hn_points_per_point", 0.02))
@@ -370,9 +403,12 @@ class Gatherer:
                      + min(w.get("youtube_views_cap", 4), yt_views / 50000))
             if rel < int(self.cfg.get("min_relevance_single_source", 1)) and nsrc < 2:
                 continue
+            if rel < 1 and stypes.get("hn", 0) == len(its):
+                continue  # HN full-text search is fuzzy; HN-only clusters need a lexicon hit
             cands.append({
                 "title": title, "score": round(score, 1), "relevance": rel, "keyword_hits": hits[:6],
                 "negative_hits": negs, "sources": sorted({i["source"] for i in its})[:8],
+                "origins": sorted(o for o in origins if o), "n_queries": n_queries,
                 "source_types": dict(stypes), "n_items": len(its),
                 "urls": [i["url"] for i in its if i["url"]][:3],
                 "published": max((i["published"] or "" for i in its), default=None) or None,
