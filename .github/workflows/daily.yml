@@ -91,8 +91,25 @@ jobs:
           echo "attempts=$attempt"  >> "$GITHUB_OUTPUT"
           [ "$result" = "success" ]
 
+      - name: Run trend radar
+        id: radar
+        if: steps.gate.outputs.should_run == 'true'
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LARK_WEBHOOK_URL: ${{ secrets.LARK_WEBHOOK_URL }}
+          LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
+          LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
+          LARK_BASE_APP_TOKEN: ${{ vars.LARK_BASE_APP_TOKEN }}
+          LARK_BASE_TABLE_ID: ${{ vars.LARK_BASE_TABLE_ID }}
+          LARK_BASE_URL: ${{ vars.LARK_BASE_URL }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python -m src.radar.run
+
       - name: Commit data
-        if: steps.gate.outputs.should_run == 'true' && steps.run.outputs.result == 'success'
+        if: steps.gate.outputs.should_run == 'true' && (steps.run.outputs.result == 'success' || steps.radar.outcome == 'success')
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
